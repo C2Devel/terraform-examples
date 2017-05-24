@@ -8,6 +8,10 @@ variable "region" {
 
 variable "az" {}
 
+variable "instance_type" {
+  default = "m1.micro"
+}
+
 provider "aws" {
   endpoints {
     ec2 = "${var.ec2_url}"

@@ -2,7 +2,7 @@ variable "subnet_id" {}
 
 resource "aws_instance" "test_instance_attachment" {
   ami           = "${aws_ami.test_ami.id}"
-  instance_type = "m1.micro"
+  instance_type = "${var.instance_type}"
   subnet_id     = "${var.subnet_id}"
 }
 
