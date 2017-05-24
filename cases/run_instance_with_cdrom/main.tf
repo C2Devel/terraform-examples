@@ -28,3 +28,14 @@ resource "aws_instance" "test_instance_with_cdrom" {
   instance_type = "m1.micro"
   subnet_id     = "${var.subnet_id}"
 }
+
+resource "aws_ebs_volume" "test_attach_volume" {
+  availability_zone = "${var.az}"
+  size              = 10
+}
+
+resource "aws_volume_attachment" "test_ebs_attachment" {
+  device_name = "cdrom1"
+  volume_id   = "${aws_ebs_volume.test_attach_volume.id}"
+  instance_id = "${aws_instance.test_instance_with_cdrom.id}"
+}
