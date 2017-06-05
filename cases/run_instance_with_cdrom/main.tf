@@ -1,17 +1,19 @@
 variable "subnet_id" {}
 
 resource "aws_ami" "test_ami_with_cdrom" {
-  # must be empty, due to 'name' field is not supported
+  # NOTE: 'name' attribute is not supported, leave blank
   name             = ""
   root_device_name = "cdrom1"
 
-  # must be overrided, due to 'paravirtualized' is not supported
+  # NOTE: 'virtualization_type' attribute must be overrided
+  #       with 'kvm-virtio' or 'kvm-legacy' value
   virtualization_type = "kvm-virtio"
 
-  # must be empty, due to 'simple' is not supported
+  # NOTE: 'sriov_net_support' attribute is not supported, leave blank
   sriov_net_support = ""
 
-  /* Empty 'cdrom' and 'floppy' slots must be created as 'ephemeral' block devices */
+  # NOTE: empty 'cdrom' and 'floppy' slots
+  #       must be created as 'ephemeral' block devices
   ephemeral_block_device = {
     device_name  = "cdrom1"
     virtual_name = "cdrom1"
