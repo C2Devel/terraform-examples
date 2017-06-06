@@ -12,6 +12,10 @@ variable "instance_type" {
   default = "m1.micro"
 }
 
+variable "insecure" {
+  default = false
+}
+
 provider "aws" {
   endpoints {
     # NOTE: specify custom EC2 endpoint URL
@@ -28,6 +32,7 @@ provider "aws" {
   # NOTE: Region has different name, skip validation
   skip_region_validation = true
 
+  insecure   = "${var.insecure}"
   access_key = "${var.access_key}"
   secret_key = "${var.secret_key}"
   region     = "${var.region}"
