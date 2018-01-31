@@ -10,16 +10,8 @@ How to run one of the Terraform test cases:
   az="<default_az_name>"
   subnet_id="<default_subnet_id>"
   ```
-* Navigate to the case directory, for example 'cases/run_instance_with_cdrom':
+* Run Terraform `plan` and `apply` command for specified case:
   ```sh
-  $ cd cases/run_instance_with_cdrom
-  ```
-* Create a symlink to the `terraform.tfvars` file:
-  ```sh
-  $ ln -s ../../terraform.tfvars
-  ```
-* Run Terraform `plan` and `apply` commands:
-  ```sh
-  $ terraform plan
-  $ terraform apply
+  $ make plan-<subfolder_name_in_cases_folder>
+  $ make apply-<subfolder_name_in_cases_folder>
   ```
