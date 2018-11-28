@@ -8,8 +8,7 @@ resource "aws_ebs_snapshot" "test_snapshot" {
 }
 
 resource "aws_ami" "test_ami" {
-  # NOTE: 'name' attribute is not supported, leave blank
-  name = ""
+  name = "test-image"
 
   # NOTE: 'virtualization_type' attribute must be overrided
   #       with 'kvm-virtio' or 'kvm-legacy' value
