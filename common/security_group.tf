@@ -1,7 +1,3 @@
-variable "security_groups_count" {
-  default = 1
-}
-
 resource "aws_security_group" "test_security_group" {
   name        = "test_security_group"
   description = "test_security_group"
