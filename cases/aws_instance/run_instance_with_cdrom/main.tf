@@ -1,16 +1,10 @@
-variable "subnet_id" {}
-
 resource "aws_ami" "test_ami_with_cdrom" {
-  # NOTE: 'name' attribute is not supported, leave blank
-  name             = ""
+  name             = "test_ami"
   root_device_name = "cdrom1"
 
-  # NOTE: 'virtualization_type' attribute must be overrided
+  # NOTE: 'virtualization_type' attribute must be overridden
   #       with 'kvm-virtio' or 'kvm-legacy' value
   virtualization_type = "kvm-virtio"
-
-  # NOTE: 'sriov_net_support' attribute is not supported, leave blank
-  sriov_net_support = ""
 
   # NOTE: empty 'cdrom' and 'floppy' slots
   #       must be created as 'ephemeral' block devices
@@ -21,12 +15,13 @@ resource "aws_ami" "test_ami_with_cdrom" {
 
   ebs_block_device = {
     device_name = "disk1"
-    volume_size = 5
+    volume_type = "st2"
+    volume_size = 32
   }
 }
 
 resource "aws_instance" "test_instance_with_cdrom" {
   ami           = "${aws_ami.test_ami_with_cdrom.id}"
   instance_type = "${var.instance_type}"
-  subnet_id     = "${var.subnet_id}"
+  subnet_id     = "${aws_subnet.test_subnet.id}"
 }
