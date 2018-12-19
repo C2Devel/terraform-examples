@@ -1,9 +1,9 @@
-aws_default_network_acl
-=======================
+aws_network_acl
+===============
 
 Summary
 -------
-This example introduces ``aws_default_network_acl`` resource.
+This example introduces ``aws_network_acl`` resource.
 
 Differences
 -----------
