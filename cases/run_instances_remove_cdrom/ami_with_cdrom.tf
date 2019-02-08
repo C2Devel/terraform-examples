@@ -1,1 +1,0 @@
-../../common/ami_with_cdrom.tf

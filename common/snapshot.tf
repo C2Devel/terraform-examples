@@ -1,6 +1,6 @@
 resource "aws_ebs_volume" "test_volume" {
   availability_zone = "${var.az}"
-  size              = 10
+  size              = 32
 }
 
 resource "aws_ebs_snapshot" "test_snapshot" {

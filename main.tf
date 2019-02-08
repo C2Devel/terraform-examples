@@ -1,6 +1,8 @@
+variable "material" {}
 variable "ec2_url" {}
 variable "access_key" {}
 variable "secret_key" {}
+variable "ami" {}
 
 variable "region" {
   default = "croc"
@@ -11,6 +13,8 @@ variable "az" {}
 variable "instance_type" {
   default = "m1.micro"
 }
+
+variable "account_id" {}
 
 variable "insecure" {
   default = false
