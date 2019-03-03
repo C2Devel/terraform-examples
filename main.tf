@@ -1,5 +1,6 @@
 variable "material" {}
 variable "ec2_url" {}
+variable "s3_url" {}
 variable "access_key" {}
 variable "secret_key" {}
 variable "ami" {}

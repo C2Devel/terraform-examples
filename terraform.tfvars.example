@@ -1,4 +1,5 @@
 ec2_url = "https://api.cloud.croc.ru"
+s3_url = "https://storage.cloud.croc.ru"
 
 secret_key = "<your_secret_key>"
 
