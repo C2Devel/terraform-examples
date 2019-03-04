@@ -11,7 +11,7 @@ Differences
 Notes
 ~~~~~
 
-The only supported value for ``strategy`` attribute is ``distribute``.
+The only supported value for ``strategy`` attribute is ``spread``.
 
 Example
 -------
