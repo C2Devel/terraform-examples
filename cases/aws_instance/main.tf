@@ -11,7 +11,7 @@ resource "aws_key_pair" "test_key_pair" {
 
 resource "aws_placement_group" "test_placement_group" {
   name     = "test_placement_group"
-  strategy = "distribute"
+  strategy = "spread"
 }
 
 resource "aws_instance" "test_instance" {
