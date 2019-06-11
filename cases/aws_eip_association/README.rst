@@ -12,7 +12,6 @@ Unsupported attributes
 ~~~~~~~~~~~~~~~~~~~~~~
 
 * ``public_ip``
-* ``network_interface_id``
 * ``allow_reassociation``
 * ``private_ip``
 
