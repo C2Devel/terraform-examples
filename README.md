@@ -45,6 +45,9 @@
 * [aws_default_security_group](cases/aws_default_security_group/README.rst)
 * [aws_security_group_rule](cases/aws_security_group_rule/README.rst)
 
+### S3 resources
+
+* [aws_s3_bucket](cases/aws_s3_bucket/README.rst)
 
 ## How to run test cases
 
