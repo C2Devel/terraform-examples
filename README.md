@@ -49,9 +49,17 @@
 
 * [aws_s3_bucket](cases/aws_s3_bucket/README.rst)
 
-## How to run test cases
+## Installation
 
-* Install [terraform](https://www.terraform.io/downloads.html) (`0.10.*` and `0.11.*` versions are supported)
+* Install [autoconf](https://www.gnu.org/software/autoconf/#downloading)
+
+* Generate and run configure script:
+
+```sh
+  $ autoconf && ./configure
+```
+
+* Run ``make init`` to init ``aws provider``
 
 * Create ``terraform.tfvars`` file:
 
@@ -61,7 +69,7 @@
 
 * Update ``terraform.tfvars`` file with desirable values
 
-* Run ``make init`` to init ``aws provider``
+## How to run test cases
 
 * Run ``make show-cases`` to list all available cases
 
