@@ -22,23 +22,20 @@ endef
 .SILENT: all clean init show-cases clean-all
 
 all: clean
-	$(foreach case,\
-		$(CASES_NAMES),\
-		$(if $(filter $(case),$(EXCLUDE_CASES_NAMES)),,\
-			$(MAKE) plan-$(case) || exit $$;\
-			$(MAKE) apply-$(case) || exit $$;\
-# FIXME: ''C2DEVEL-6942 workaround.
-			$(MAKE) destroy-$(case) ; $(MAKE) destroy-$(case) || exit $$;\
-		)\
+	$(foreach case, \
+		$(CASES_NAMES), \
+			$(if $(filter $(case),$(EXCLUDE_CASE_NAMES)),, \
+				$(MAKE) plan-$(case) || exit $$; \
+				$(MAKE) apply-$(case) || exit $$; \
+				$(MAKE) destroy-$(case) || exit $$; \
+		) \
 	)
 
 init: ; @$(TERRAFORM) init
 
 show-cases:
-	find ./cases/ -mindepth 2 -name README.rst -print0 | \
-		xargs -0 -i% bash -c "cat % | head -n 6 | awk 'NR==1; END{print}' | paste -d ',' - -" | \
-		awk -F',' '{printf "%s\t%s\n", $$1,$$2}' | \
-		column -t --table-columns case,info -s$$'\t' -o \| -c $$(tput cols) -W info -R case -d -T info
+	find ./cases/ -mindepth 2 -name README.rst | \
+		awk -F'/' '{print $$(NF-1)}'
 
 clean: COMMON_RESOURCES_NAMES != ls $(WORKDIR)/common
 clean: LINKS != find -L $(WORKDIR)/cases -xtype l -print0 | xargs -0 -i% basename %
