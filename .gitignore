@@ -3,3 +3,5 @@
 **/.terraform
 **/*tfstate*
 .vscode/*
+autom4te.cache/
+config.log

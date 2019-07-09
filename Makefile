@@ -3,12 +3,6 @@ CASES_PATHS := $(sort $(dir $(wildcard ${WORKDIR}/cases/*/*/)))
 CASES_NAMES := $(foreach PATH, $(CASES_PATHS), $(lastword $(subst /, ,$(PATH))))
 
 TERRAFORM != which terraform
-TERRAFORM_VERSION != $(TERRAFORM) -version | head -n 1 | awk -F. '$$2 > 9 {print $$2}'
-
-ifndef TERRAFORM_VERSION
-$(error current terraform version is not supported)
-endif
-
 TRASH_FILES := terraform.tfstate terraform.tfstate.backup crash.log
 
 define EXCLUDE_CASE_NAMES
