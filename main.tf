@@ -1,4 +1,3 @@
-variable "material" {}
 variable "ec2_url" {}
 variable "s3_url" {}
 variable "access_key" {}
@@ -20,6 +19,8 @@ variable "account_id" {}
 variable "insecure" {
   default = false
 }
+
+provider "tls" {}
 
 provider "aws" {
   endpoints {
