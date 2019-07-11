@@ -10,6 +10,7 @@ define EXCLUDE_CASE_NAMES
 aws_ami_from_instance
 # FIXME: 'C2DEVEL-4478'
 aws_customer_gateway
+aws_volume_attachment
 endef
 
 .PHONY: all clean init show-cases clean-all
