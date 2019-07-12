@@ -11,6 +11,7 @@ dependencies="
       terraform: ................... > 0.9.x and < 0.12.x
       findutils: ................... > 4.x.x
       coreutils: ................... > 8.x.x
+      virtualenv: .................. > 16.x.x
 
 ------------------------------------------------------------------------
 "
@@ -65,6 +66,11 @@ fi
 find_version=$(find --version | head -n 1 | awk '{print $4}')
 xargs_version=$(xargs --version | head -n 1 | awk '{print $4}')
 
+AC_CHECK_PROG(VIRTUALENV,virtualenv,virtualenv)
+if test x$VIRTUALENV = "x" ; then
+  AC_MSG_ERROR("{dependencies}virtualenv is required to run examples.")
+fi
+virtualenv_version=$(virtualenv --version)
 
 AC_MSG_RESULT([
 ------------------------------------------------------------------------
@@ -77,6 +83,7 @@ AC_MSG_RESULT([
       Find version: .................. ${find_version}
       Xargs version: ................. ${xargs_version}
       Yes version: ................... ${yes_version}
+      Virtualenv version: ............ ${virtualenv_version}
 
 ------------------------------------------------------------------------
 ])
