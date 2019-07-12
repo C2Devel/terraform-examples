@@ -1,3 +1,7 @@
+resource "tls_private_key" "ssh" {
+  algorithm   = "RSA"
+}
+
 resource "aws_security_group" "additional_security_group" {
   name        = "additional_security_group"
   description = "additional_security_group"
@@ -6,7 +10,7 @@ resource "aws_security_group" "additional_security_group" {
 
 resource "aws_key_pair" "test_key_pair" {
   key_name   = "terraform_key"
-  public_key = "${var.material}"
+  public_key = "${tls_private_key.ssh.public_key_openssh}"
 }
 
 resource "aws_placement_group" "test_placement_group" {

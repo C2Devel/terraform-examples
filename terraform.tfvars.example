@@ -14,5 +14,3 @@ account_id = "<your_access_key>"
 instance_type = "<desired_instance_type>"
 
 ami = "<desired_ami_id>"
-
-material = "<your_public_ssh_key>"
