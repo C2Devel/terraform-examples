@@ -44,6 +44,7 @@
 * [aws_security_group](cases/aws_security_group/README.rst)
 * [aws_default_security_group](cases/aws_default_security_group/README.rst)
 * [aws_security_group_rule](cases/aws_security_group_rule/README.rst)
+* [aws_network_interface](cases/aws_network_interface/README.rst)
 
 ### S3 resources
 

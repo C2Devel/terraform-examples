@@ -11,8 +11,8 @@ Differences
 Unsupported attributes
 ~~~~~~~~~~~~~~~~~~~~~~
 
-* ``network_interface``
 * ``public_ipv4_pull``
+* ``associate_with_private_ip``
 
 Example
 -------
