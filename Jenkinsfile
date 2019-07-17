@@ -1,11 +1,33 @@
+def terraformExamplesBadge = addEmbeddableBadgeConfiguration(id: "terraformExamplesBuild", subject: "Terraform examples build")
+
 pipeline {
     agent { dockerfile true }
     stages {
     stage('terraform validate') {
-      steps { sh 'make lint-terraform' }
+      steps { 
+        script {
+          try {
+            terraformExamplesBadge.setStatus('running')
+            sh 'make lint-terraform' 
+          } catch (Exception err) {
+            terraformExamplesBadge.setStatus('failing')
+            error 'Build failed'
+          }
+        }
+      }
     }
     stage('rstcheck') {
-      steps { sh 'make lint-rst' }
+      steps { 
+        script {
+          try {
+            sh 'make lint-rst'
+            terraformExamplesBadge.setStatus('passing')
+          } catch (Exception err) {
+            terraformExamplesBadge.setStatus('failing')
+            error 'Build failed'
+          }
+        }
+      }
     }
   }
 }
