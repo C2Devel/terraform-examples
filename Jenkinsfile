@@ -21,7 +21,7 @@ pipeline {
         script {
           try {
             sh 'make lint-rst'
-            terraformExamplesBadge.setStatus('passing')
+            terraformExamplesBadge.setStatus('good')
           } catch (Exception err) {
             terraformExamplesBadge.setStatus('failing')
             error 'Build failed'
