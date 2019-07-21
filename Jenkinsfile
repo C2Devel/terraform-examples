@@ -1,32 +1,26 @@
-def terraformExamplesBadge = addEmbeddableBadgeConfiguration(id: "terraformExamplesBuild", subject: "Terraform examples build")
+import groovy.io.FileType
 
-pipeline {
-    agent { dockerfile true }
-    stages {
-    stage('terraform validate') {
-      steps { 
-        script {
-          try {
-            terraformExamplesBadge.setStatus('running')
-            sh 'make lint-terraform' 
-          } catch (Exception err) {
-            terraformExamplesBadge.setStatus('failing')
-            error 'Build failed'
+@NonCPS
+def getFiles(String baseDir) {
+    Arrays.asList(new File(baseDir).listFiles())
+}
+
+node {
+  def docker_image = docker.build("dev_container", '-f ./Dockerfile .')
+  def dirs = getFiles("${env.WORKSPACE}/cases")
+  
+  for (int i = 0; i < dirs.size(); i++) {
+    dir = dirs.get(i);
+    stage (dir.name + " " + "run") {
+      def badge = addEmbeddableBadgeConfiguration(id: dir.name + "build", subject: dir.name + "build");
+      try {
+        docker_image.inside {
+          sh 'make apply-' + dir.name
+          sh 'make destroy-' + dir.name
           }
-        }
-      }
-    }
-    stage('rstcheck') {
-      steps { 
-        script {
-          try {
-            sh 'make lint-rst'
-            terraformExamplesBadge.setStatus('good')
-          } catch (Exception err) {
-            terraformExamplesBadge.setStatus('failing')
-            error 'Build failed'
-          }
-        }
+        badge.setStatus('works');
+      } catch (Exception err) {
+        badge.setStatus('failed');
       }
     }
   }

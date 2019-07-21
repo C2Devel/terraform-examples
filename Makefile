@@ -77,3 +77,10 @@ lint-rst: init
 lint-terraform: init create-stub-tfvars $(foreach name,$(CASES_NAMES),validate-$(name))
 
 create-stub-tfvars: ; cp terraform.tfvars{.example,}
+
+generate:
+	sed -e 's/<your_secret_key>/$(CROC_API_KEY)/g' terraform.tfvars.example  > terraform.tfvars
+	sed -i -e 's/<your_access_key>/$(CROC_ACCESS_KEY)/g' terraform.tfvars
+	sed -i -e 's/<desired_instance_type>/$(INSTANCE_TYPE)/g' terraform.tfvars
+	sed -i -e 's/<desired_ami_id>/$(AMI_ID)/g' terraform.tfvars
+
