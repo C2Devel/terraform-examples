@@ -10,3 +10,11 @@ steps:
   image: local_build_image
   commands:
   - make lint-rst
+
+
+trigger:
+  branch:
+  - add-ci
+  event:
+  - push
+
