@@ -1,0 +1,12 @@
+kind: pipeline
+name: some-checks
+
+steps:
+- name: build image
+  commands:
+    - docker build -t local_build_image . 
+
+- name: rst-lint
+  image: local_build_image
+  commands:
+  - make lint-rst
