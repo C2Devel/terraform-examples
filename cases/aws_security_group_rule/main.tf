@@ -4,10 +4,11 @@ resource "aws_security_group" "source_security_group" {
 }
 
 resource "aws_security_group_rule" "allow_udp" {
-  # NOTE: 'prefix_list_ids ', 'description' attributes are not supported
+  # NOTE: 'prefix_list_ids ' attributes are not supported
   type                     = "ingress"
   from_port                = 11
   to_port                  = 33
+  description              = "some_description"
   protocol                 = "udp"
   source_security_group_id = "${aws_security_group.source_security_group.id}"
   security_group_id        = "${aws_security_group.test_security_group.id}"

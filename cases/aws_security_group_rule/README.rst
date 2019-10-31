@@ -12,7 +12,6 @@ Unsupported attributes
 ~~~~~~~~~~~~~~~~~~~~~~
 
 * ``prefix_list_ids``
-* ``description``
 
 Example
 -------
