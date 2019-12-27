@@ -31,6 +31,7 @@ Unsupported attributes
 * ``volume_tags``
 * ``network_interface``
 * ``credit_specification``
+* ``private_ip``
 
 Example
 -------
