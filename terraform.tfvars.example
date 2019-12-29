@@ -14,3 +14,5 @@ account_id = "<your_access_key>"
 instance_type = "<desired_instance_type>"
 
 ami = "<desired_ami_id>"
+
+public_ipv4_pool = "<public_pool>"

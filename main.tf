@@ -3,6 +3,7 @@ variable "s3_url" {}
 variable "access_key" {}
 variable "secret_key" {}
 variable "ami" {}
+variable "public_ipv4_pool" {}
 
 variable "region" {
   default = "croc"
