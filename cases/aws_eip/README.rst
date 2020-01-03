@@ -11,7 +11,6 @@ Differences
 Unsupported attributes
 ~~~~~~~~~~~~~~~~~~~~~~
 
-* ``public_ipv4_pull``
 * ``associate_with_private_ip``
 
 Example
