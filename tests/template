@@ -1,0 +1,22 @@
+AT_BANNER([plan,apply,destroy,import @CASE_NAME@ resource])
+
+AT_SETUP([plan @CASE_NAME@])
+AT_CHECK([cd "$SRCDIR" && make plan-@CASE_NAME@],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply @CASE_NAME@])
+AT_CHECK([cd "$SRCDIR" && make apply-@CASE_NAME@],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply data-@CASE_NAME@])
+AT_SKIP_IF([test ! -d "$SRCDIR"cases/data_@CASE_NAME@])
+AT_CHECK([cd "$SRCDIR" && make apply-data_@CASE_NAME@],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([destroy @CASE_NAME@])
+AT_CHECK([cd "$SRCDIR" && make destroy-@CASE_NAME@],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([import @CASE_NAME@])
+AT_SKIP_IF([true])
+AT_CLEANUP

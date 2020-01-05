@@ -1,0 +1,41 @@
+PACKAGE_NAME = @PACKAGE_NAME@
+PACKAGE_TARNAME = @PACKAGE_TARNAME@
+PACKAGE_VERSION = @PACKAGE_VERSION@
+PACKAGE_STRING = @PACKAGE_STRING@
+PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
+PACKAGE_URL = @PACKAGE_URL@
+
+srcdir = @srcdir@
+top_srcdir = @top_srcdir@
+top_builddir = @top_builddir@
+
+TESTSUITE = $(srcdir)/testsuite
+# TODO: do not hardcode all test files here
+TESTSOURCES = $(srcdir)/local.at $(srcdir)/aws_ami.at $(srcdir)/aws_ami_from_instance.at $(srcdir)/aws_ami_launch_permission.at $(srcdir)/aws_customer_gateway.at $(srcdir)/aws_default_network_acl.at $(srcdir)/aws_default_route_table.at $(srcdir)/aws_default_security_group.at $(srcdir)/aws_default_vpc.at $(srcdir)/aws_default_vpc_dhcp_options.at $(srcdir)/aws_ebs_snapshot.at $(srcdir)/aws_ebs_volume.at $(srcdir)/aws_eip_association.at $(srcdir)/aws_eip.at $(srcdir)/aws_instance.at $(srcdir)/aws_key_pair.at $(srcdir)/aws_network_acl.at $(srcdir)/aws_network_acl_rule.at $(srcdir)/aws_network_interface.at $(srcdir)/aws_placement_group.at $(srcdir)/aws_route.at $(srcdir)/aws_route_table_association.at $(srcdir)/aws_route_table.at $(srcdir)/aws_s3_bucket.at $(srcdir)/aws_security_group.at $(srcdir)/aws_security_group_rule.at $(srcdir)/aws_snapshot_create_volume_permission.at $(srcdir)/aws_subnet.at $(srcdir)/aws_volume_attachment.at $(srcdir)/aws_vpc.at $(srcdir)/aws_vpc_dhcp_options_association.at $(srcdir)/aws_vpc_dhcp_options.at $(srcdir)/aws_vpn_connection.at $(srcdir)/local.at $(srcdir)/testsuite.at
+AUTOM4TE = autom4te
+AUTOTEST = $(AUTOM4TE) --language=autotest
+
+check-local: atconfig atlocal $(TESTSUITE)
+	$(SHELL) '$(TESTSUITE)' $(TESTSUITEFLAGS)
+
+$(srcdir)/package.m4: $(top_srcdir)/configure.ac
+	$(AM_V_GEN) :;{ \
+	  echo '# Signature of the current package.' && \
+	  echo 'm4_define([AT_PACKAGE_NAME], [$(PACKAGE_NAME)])' && \
+	  echo 'm4_define([AT_PACKAGE_TARNAME], [$(PACKAGE_TARNAME)])' && \
+	  echo 'm4_define([AT_PACKAGE_VERSION], [$(PACKAGE_VERSION)])' && \
+	  echo 'm4_define([AT_PACKAGE_STRING], [$(PACKAGE_STRING)])' && \
+	  echo 'm4_define([AT_PACKAGE_BUGREPORT], [$(PACKAGE_BUGREPORT)])'; \
+	  echo 'm4_define([AT_PACKAGE_URL], [$(PACKAGE_URL)])'; \
+	} >'$(srcdir)/package.m4'
+
+$(TESTSUITE): $(TESTSOURCES) $(srcdir)/package.m4
+	$(AM_V_GEN) $(AUTOTEST) -I '$(srcdir)' -o $@.tmp $@.at; mv $@.tmp $@
+
+atconfig: $(top_builddir)/config.status
+	cd $(top_builddir) && \
+	   $(SHELL) ./config.status $(subdir)/$@
+
+atlocal: $(srcdir)/atlocal.in $(top_builddir)/config.status
+	cd $(top_builddir) && \
+	   $(SHELL) ./config.status $(subdir)/$@
