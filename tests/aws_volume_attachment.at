@@ -1,0 +1,22 @@
+AT_BANNER([plan,apply,destroy,import aws_volume_attachment resource])
+
+AT_SETUP([plan aws_volume_attachment])
+AT_CHECK([cd "$SRCDIR" && make plan-aws_volume_attachment],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply aws_volume_attachment])
+AT_CHECK([cd "$SRCDIR" && make apply-aws_volume_attachment],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply data-aws_volume_attachment])
+AT_SKIP_IF([test ! -d "$SRCDIR"cases/data_aws_volume_attachment])
+AT_CHECK([cd "$SRCDIR" && make apply-data_aws_volume_attachment],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([destroy aws_volume_attachment])
+AT_CHECK([cd "$SRCDIR" && make destroy-aws_volume_attachment],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([import aws_volume_attachment])
+AT_SKIP_IF([true])
+AT_CLEANUP

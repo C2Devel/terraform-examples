@@ -1,0 +1,22 @@
+AT_BANNER([plan,apply,destroy,import aws_default_network_acl resource])
+
+AT_SETUP([plan aws_default_network_acl])
+AT_CHECK([cd "$SRCDIR" && make plan-aws_default_network_acl],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply aws_default_network_acl])
+AT_CHECK([cd "$SRCDIR" && make apply-aws_default_network_acl],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply data-aws_default_network_acl])
+AT_SKIP_IF([test ! -d "$SRCDIR"cases/data_aws_default_network_acl])
+AT_CHECK([cd "$SRCDIR" && make apply-data_aws_default_network_acl],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([destroy aws_default_network_acl])
+AT_CHECK([cd "$SRCDIR" && make destroy-aws_default_network_acl],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([import aws_default_network_acl])
+AT_SKIP_IF([true])
+AT_CLEANUP

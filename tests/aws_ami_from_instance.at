@@ -1,0 +1,25 @@
+#TODO: create corresponding github issue
+AT_BANNER([plan aws_ami_from_instance resource; most of tests are skipped due to c2 bugs])
+
+AT_SETUP([plan aws_ami_from_instance])
+AT_CHECK([cd "$SRCDIR" && make plan-aws_ami_from_instance],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply aws_ami_from_instance])
+AT_SKIP_IF([true])
+AT_CHECK([cd "$SRCDIR" && make apply-aws_ami_from_instance],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply data-aws_ami_from_instance])
+AT_SKIP_IF([test ! -d "$SRCDIR"cases/data_aws_ami_from_instance])
+AT_CHECK([cd "$SRCDIR" && make apply-data_aws_ami_from_instance],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([destroy aws_ami_from_instance])
+AT_SKIP_IF([true])
+AT_CHECK([cd "$SRCDIR" && make destroy-aws_ami_from_instance],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([import aws_ami_from_instance])
+AT_SKIP_IF([true])
+AT_CLEANUP
