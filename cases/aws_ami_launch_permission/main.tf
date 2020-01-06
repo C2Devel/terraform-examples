@@ -20,6 +20,12 @@ resource "aws_ami" "test_ami" {
     device_name = "disk1"
     snapshot_id = "${aws_ebs_snapshot.test_snapshot.id}"
   }
+
+  timeouts {
+    create = "10m"
+    update = "10m"
+    delete = "10m"
+  }
 }
 
 resource "aws_ami_launch_permission" "test_ami_launch" {

@@ -18,6 +18,12 @@ resource "aws_ami" "test_ami" {
     volume_type = "st2"
     volume_size = 32
   }
+
+  timeouts {
+    create = "10m"
+    update = "10m"
+    delete = "10m"
+  }
 }
 
 resource "aws_instance" "test_instance" {

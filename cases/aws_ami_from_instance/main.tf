@@ -12,4 +12,10 @@ resource "aws_ami_from_instance" "test_ami" {
   name = "test_ami"
 
   source_instance_id = "${aws_instance.test_instance.id}"
+
+  timeouts {
+    create = "10m"
+    update = "10m"
+    delete = "10m"
+  }
 }

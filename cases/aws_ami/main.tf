@@ -36,4 +36,10 @@ resource "aws_ami" "test_ami_from_snapshot" {
 
     snapshot_id = "${aws_ebs_snapshot.test_snapshot.id}"
   }
+
+  timeouts {
+    create = "10m"
+    update = "10m"
+    delete = "10m"
+  }
 }
