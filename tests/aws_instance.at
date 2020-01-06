@@ -1,0 +1,46 @@
+AT_BANNER([plan,apply,destroy,import aws_instance resource])
+
+AT_SETUP([plan aws_instance])
+AT_CHECK([cd "$SRCDIR" && make plan-aws_instance],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply aws_instance])
+AT_CHECK([cd "$SRCDIR" && make apply-aws_instance],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply data-aws_instance])
+AT_SKIP_IF([test ! -d "$SRCDIR"cases/data_aws_instance])
+AT_CHECK([cd "$SRCDIR" && make apply-data_aws_instance],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([destroy aws_instance])
+AT_CHECK([cd "$SRCDIR" && make destroy-aws_instance],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([import aws_instance])
+AT_SKIP_IF([true])
+AT_CLEANUP
+
+AT_SETUP([apply run_instances_remove_cdrom])
+AT_CHECK([cd "$SRCDIR" && make apply-run_instances_remove_cdrom],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([destroy run_instances_remove_cdrom])
+AT_CHECK([cd "$SRCDIR" && make destroy-run_instances_remove_cdrom],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply run_instance_with_cdrom])
+AT_CHECK([cd "$SRCDIR" && make apply-run_instance_with_cdrom],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([destroy run_instance_with_cdrom])
+AT_CHECK([cd "$SRCDIR" && make destroy-run_instance_with_cdrom],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply run_instance_with_ebs_override])
+AT_CHECK([cd "$SRCDIR" && make apply-run_instance_with_ebs_override],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([destroy run_instance_with_ebs_override])
+AT_CHECK([cd "$SRCDIR" && make destroy-run_instance_with_ebs_override],,[ignore],[ignore])
+AT_CLEANUP

@@ -1,5 +1,4 @@
-AC_INIT(terraform-examples, version-0.1)
-PACKAGE=terraform-examples
+AC_INIT([terraform-examples], [0.1])
 
 dependencies="
 ------------------------------------------------------------------------
@@ -68,7 +67,7 @@ xargs_version=$(xargs --version | head -n 1 | awk '{print $4}')
 
 AC_MSG_RESULT([
 ------------------------------------------------------------------------
-  $PACKAGE $VERSION:  Automatic configuration OK.
+  $PACKAGE_NAME $PACKAGE_VERSION:  Automatic configuration OK.
 
     General configuration:
 
@@ -80,5 +79,11 @@ AC_MSG_RESULT([
 
 ------------------------------------------------------------------------
 ])
+
+AC_CONFIG_TESTDIR([tests])
+AC_CONFIG_FILES([tests/Makefile tests/atlocal])
+
 echo "Type \"make init\" to init terraform provider";
 echo "Type \"make\" to run all examples";
+
+AC_OUTPUT

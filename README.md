@@ -57,7 +57,7 @@
 * Generate and run configure script:
 
 ```sh
-  $ autoconf && ./configure
+  $ autoreconf -i && ./configure
 ```
 
 * Run ``make init`` to init ``aws provider``
@@ -70,9 +70,9 @@
 
 * Update ``terraform.tfvars`` file with desirable values
 
-## How to run test cases
+## How to run specific examples
 
-* Run ``make show-cases`` to list all available cases
+* Run ``make show-cases`` to list all available examples
 
 * Run terraform ``plan``, ``apply`` and ``destroy`` command for specified case:
 
@@ -82,8 +82,10 @@
   $ make destroy-<case_name>
 ```
 
-* Or run all cases with ``make all``
-
 * Use ``make clean`` to remove ``terraform.tfstate*`` and ``crash.log`` files
 
 * Use ``make clean-all`` to remove ``aws provider``
+
+## Tests
+
+* Run ``make check`` to run all tests via autotest test framework

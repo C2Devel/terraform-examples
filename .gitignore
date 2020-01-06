@@ -1,7 +1,37 @@
+# terraform
 **/terraform.tfvars
 **/crash.log
 **/.terraform
 **/*tfstate*
-.vscode/*
-autom4te.cache/
+
+# editor
+/.vscode/*
+
+# autotools
+tests/testsuite
+tests/testsuite.log
+tests/testsuite.dir
+tests/atlocal
+tests/Makefile
+tests/package.m4
+tests/atconfig
+autom4te.cache
 config.log
+ar-lib
+mdate-sh
+py-compile
+autoscan.log
+autoscan-*.log
+aclocal.m4
+compile
+config.guess
+config.h.in
+config.log
+config.status
+config.sub
+configure
+configure.scan
+depcomp
+install-sh
+missing
+stamp-h1

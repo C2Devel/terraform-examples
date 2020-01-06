@@ -1,0 +1,22 @@
+AT_BANNER([plan,apply,destroy,import aws_route resource])
+
+AT_SETUP([plan aws_route])
+AT_CHECK([cd "$SRCDIR" && make plan-aws_route],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply aws_route])
+AT_CHECK([cd "$SRCDIR" && make apply-aws_route],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply data-aws_route])
+AT_SKIP_IF([test ! -d "$SRCDIR"cases/data_aws_route])
+AT_CHECK([cd "$SRCDIR" && make apply-data_aws_route],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([destroy aws_route])
+AT_CHECK([cd "$SRCDIR" && make destroy-aws_route],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([import aws_route])
+AT_SKIP_IF([true])
+AT_CLEANUP

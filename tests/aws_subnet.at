@@ -1,0 +1,22 @@
+AT_BANNER([plan,apply,destroy,import aws_subnet resource])
+
+AT_SETUP([plan aws_subnet])
+AT_CHECK([cd "$SRCDIR" && make plan-aws_subnet],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply aws_subnet])
+AT_CHECK([cd "$SRCDIR" && make apply-aws_subnet],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply data-aws_subnet])
+AT_SKIP_IF([test ! -d "$SRCDIR"cases/data_aws_subnet])
+AT_CHECK([cd "$SRCDIR" && make apply-data_aws_subnet],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([destroy aws_subnet])
+AT_CHECK([cd "$SRCDIR" && make destroy-aws_subnet],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([import aws_subnet])
+AT_SKIP_IF([true])
+AT_CLEANUP
