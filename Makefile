@@ -2,7 +2,7 @@ WORKDIR := $(abspath .)
 CASES_PATHS := $(sort $(dir $(wildcard $(WORKDIR)/cases/*/*/)))
 CASES_NAMES := $(foreach PATH, $(CASES_PATHS), $(lastword $(subst /, ,$(PATH))))
 
-TERRAFORM != which terraform
+TERRAFORM := $(shell which terraform)
 TRASH_FILES := terraform.tfstate terraform.tfstate.backup crash.log
 AUTOTEST_ARTIFACTS := atlocal atconfig Makefile pacakge.m4 testsuite testsuite.log testsuite.dir
 AUTOCONF_ARTIFACTS := config.log configure config.status install-sh missing autom4te.cache
@@ -31,8 +31,8 @@ clean-tests:
 
 
 
-clean-cases: COMMON_RESOURCES_NAMES != ls $(WORKDIR)/common
-clean-cases: LINKS != find -L $(WORKDIR)/cases -xtype l -print0 | xargs -0 -i% basename %
+clean-cases: COMMON_RESOURCES_NAMES := $(shell ls $(WORKDIR)/common)
+clean-cases: LINKS := $(shell find -L $(WORKDIR)/cases -xtype l -print0 | xargs -0 -i% basename %)
 clean-cases:
 	$(foreach to_del,\
 		$(TRASH_FILES) $(LINKS),\
