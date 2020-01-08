@@ -4,7 +4,7 @@ dependencies="
 ------------------------------------------------------------------------
   Please install next dependencies before using terraform-examples:
 
-      make: ........................ > 4.x.x
+      make: ........................ > 3.x.x
       git: ......................... > 2.x.x
       sed: ......................... > 4.x.x
       terraform: ................... > 0.9.x and < 0.12.x
@@ -42,9 +42,9 @@ if test x$MAKE = "x" ; then
   AC_MSG_ERROR("${dependencies}Make is required to run examples.")
 fi
 make_version=$(make --version | head -n 1 | cut -d' ' -f 3)
-make_maj_version=$(echo $make_version | awk -F. '$1 > 3 {print $1}')
+make_maj_version=$(echo $make_version | awk -F. '$1 > 2 {print $1}')
 if test x$make_maj_version = "x" ; then
-  AC_MSG_ERROR("${dependencies}Only 4.x.x versions of make are upported.")
+  AC_MSG_ERROR("${dependencies}Only 3.x.x versions of make are upported.")
 fi
 
 AC_CHECK_PROG(TERRAFORM,terraform,terraform)
