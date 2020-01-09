@@ -4,6 +4,12 @@
 
 ---
 
+### Build status
+
+* PR build status: ![pr status](https://buildbot.superdevops.xyz/badges/pr-checker.svg)
+* Nightly build status: ![night status](https://buildbot.superdevops.xyz/badges/runtests.svg)
+---
+
 ## Supported resources
 
 ### ec2 resources
