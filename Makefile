@@ -28,9 +28,12 @@ define TITLE
 endef
 
 export TITLE
-show-perfect-title: ; @echo "$$TITLE"
 
 init: show-perfect-title ; @$(TERRAFORM) init
+
+show-perfect-title: ; @echo "$$TITLE"
+
+assert-file-present = $(if $(wildcard $1),, $(error '$1' missing and needed to run this target))
 
 show-cases:
 	find ./cases/ -mindepth 2 -name README.rst | \
@@ -64,7 +67,8 @@ clean-all: clean
 define TERRAFORM_CASE_CMD
 
 .PHONY: $(1)-$(lastword $(subst /, ,$(2)))
-$(1)-$(lastword $(subst /, ,$(2))):
+$(1)-$(lastword $(subst /, ,$(2))): export _check = $(call assert-file-present, terraform.tfvars)
+$(1)-$(lastword $(subst /, ,$(2))): 
 	cd $(2) ;\
 	ln -sf $(WORKDIR)/.terraform $(2) ;\
 	ln -sf $(WORKDIR)/main.tf $(2)provider.tf ;\
