@@ -4,7 +4,7 @@ CASES_NAMES := $(foreach PATH, $(CASES_PATHS), $(lastword $(subst /, ,$(PATH))))
 
 TERRAFORM := $(shell which terraform)
 TRASH_FILES := terraform.tfstate terraform.tfstate.backup crash.log
-AUTOTEST_ARTIFACTS := atlocal atconfig Makefile pacakge.m4 testsuite testsuite.log testsuite.dir
+AUTOTEST_ARTIFACTS := atlocal atconfig Makefile package.m4 testsuite testsuite.log testsuite.dir
 AUTOCONF_ARTIFACTS := config.log configure config.status install-sh missing autom4te.cache
 
 define EXCLUDE_CASE_NAMES
