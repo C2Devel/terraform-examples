@@ -7,7 +7,7 @@ dependencies="
       make: ........................ > 3.x.x
       git: ......................... > 2.x.x
       sed: ......................... > 4.x.x
-      terraform: ................... > 0.9.x and < 0.12.x
+      terraform: ................... > 0.12.x
       findutils: ................... > 4.x.x
       coreutils: ................... > 8.x.x
 
@@ -52,9 +52,9 @@ if test x$TERRAFORM = "x" ; then
   AC_MSG_ERROR("${dependencies}terraform is required to run examples.")
 fi
 terraform_version=$(terraform -version | head -n 1 | awk '{print $2}')
-terraform_maj_version=$(echo $terraform_version | awk -F. '$2 > 9 && $2 < 12 {print $2}')
+terraform_maj_version=$(echo $terraform_version | awk -F. '$2 > 11 {print $2}')
 if test x$terraform_maj_version = "x" ; then
-  AC_MSG_ERROR("${dependencies}Only 0.10.x and 0.11.x terraform versions are supported.")
+  AC_MSG_ERROR("${dependencies}Only 0.12.x terraform versions are supported.")
 fi
 
 AC_CHECK_PROG(FIND,find,find)
