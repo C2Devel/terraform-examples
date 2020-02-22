@@ -8,12 +8,12 @@ resource "aws_ami" "test_ami_with_cdrom" {
 
   # NOTE: empty 'cdrom' and 'floppy' slots
   #       must be created as 'ephemeral' block devices
-  ephemeral_block_device = {
+  ephemeral_block_device {
     device_name  = "cdrom1"
     virtual_name = "cdrom1"
   }
 
-  ebs_block_device = {
+  ebs_block_device {
     device_name = "disk1"
     volume_type = "st2"
     volume_size = 32

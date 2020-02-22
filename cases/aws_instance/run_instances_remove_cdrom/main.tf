@@ -8,12 +8,12 @@ resource "aws_ami" "test_ami" {
 
   # NOTE: empty 'cdrom' and 'floppy' slots
   #       must be created as 'ephemeral' block devices
-  ephemeral_block_device = {
+  ephemeral_block_device {
     device_name  = "cdrom1"
     virtual_name = "cdrom1"
   }
 
-  ebs_block_device = {
+  ebs_block_device {
     device_name = "disk1"
     volume_type = "st2"
     volume_size = 32
@@ -27,9 +27,9 @@ resource "aws_ami" "test_ami" {
 }
 
 resource "aws_instance" "test_instance" {
-  ami           = "${aws_ami.test_ami.id}"
-  instance_type = "${var.instance_type}"
-  subnet_id     = "${aws_subnet.test_subnet.id}"
+  ami           = aws_ami.test_ami.id
+  instance_type = var.instance_type
+  subnet_id     = aws_subnet.test_subnet.id
 
   # NOTE: 'root_block_device' section is required for
   #       proper detection of the instance root device
@@ -51,3 +51,4 @@ resource "aws_instance" "test_instance" {
     no_device    = true
   }
 }
+
