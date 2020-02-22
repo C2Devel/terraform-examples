@@ -1,21 +1,21 @@
 AT_BANNER([plan,apply,destroy,import aws_customer_gateway resource])
 
 AT_SETUP([plan aws_customer_gateway])
-AT_CHECK([cd "$SRCDIR" && make plan-aws_customer_gateway],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" plan-aws_customer_gateway],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([apply aws_customer_gateway])
-AT_CHECK([cd "$SRCDIR" && make apply-aws_customer_gateway],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" apply-aws_customer_gateway],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([apply data-aws_customer_gateway])
 AT_SKIP_IF([test ! -d "$SRCDIR"cases/data_aws_customer_gateway])
-AT_CHECK([cd "$SRCDIR" && make apply-data_aws_customer_gateway],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" apply-data_aws_customer_gateway],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([destroy aws_customer_gateway])
 AT_SKIP_IF([true])
-AT_CHECK([cd "$SRCDIR" && make destroy-aws_customer_gateway],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" destroy-aws_customer_gateway],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([import aws_customer_gateway])
