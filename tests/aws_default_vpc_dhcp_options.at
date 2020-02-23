@@ -1,22 +1,22 @@
 AT_BANNER([plan aws_default_vpc_dhcp_options resource; most of tests are skipped due to c2 bugs])
 
 AT_SETUP([plan aws_default_vpc_dhcp_options])
-AT_CHECK([cd "$SRCDIR" && make plan-aws_default_vpc_dhcp_options],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" plan-aws_default_vpc_dhcp_options],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([apply aws_default_vpc_dhcp_options])
 AT_SKIP_IF([true])
-AT_CHECK([cd "$SRCDIR" && make apply-aws_default_vpc_dhcp_options],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" apply-aws_default_vpc_dhcp_options],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([apply data-aws_default_vpc_dhcp_options])
 AT_SKIP_IF([test ! -d "$SRCDIR"cases/data_aws_default_vpc_dhcp_options])
-AT_CHECK([cd "$SRCDIR" && make apply-data_aws_default_vpc_dhcp_options],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" apply-data_aws_default_vpc_dhcp_options],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([destroy aws_default_vpc_dhcp_options])
 AT_SKIP_IF([true])
-AT_CHECK([cd "$SRCDIR" && make destroy-aws_default_vpc_dhcp_options],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" destroy-aws_default_vpc_dhcp_options],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([import aws_default_vpc_dhcp_options])

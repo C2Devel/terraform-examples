@@ -1,20 +1,20 @@
 AT_BANNER([plan,apply,destroy,import aws_ebs_volume resource])
 
 AT_SETUP([plan aws_ebs_volume])
-AT_CHECK([cd "$SRCDIR" && make plan-aws_ebs_volume],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" plan-aws_ebs_volume],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([apply aws_ebs_volume])
-AT_CHECK([cd "$SRCDIR" && make apply-aws_ebs_volume],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" apply-aws_ebs_volume],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([apply data-aws_ebs_volume])
 AT_SKIP_IF([test ! -d "$SRCDIR"cases/data_aws_ebs_volume])
-AT_CHECK([cd "$SRCDIR" && make apply-data_aws_ebs_volume],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" apply-data_aws_ebs_volume],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([destroy aws_ebs_volume])
-AT_CHECK([cd "$SRCDIR" && make destroy-aws_ebs_volume],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" destroy-aws_ebs_volume],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([import aws_ebs_volume])

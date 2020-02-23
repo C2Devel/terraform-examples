@@ -1,20 +1,20 @@
 AT_BANNER([plan,apply,destroy,import aws_network_interface resource])
 
 AT_SETUP([plan aws_network_interface])
-AT_CHECK([cd "$SRCDIR" && make plan-aws_network_interface],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" plan-aws_network_interface],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([apply aws_network_interface])
-AT_CHECK([cd "$SRCDIR" && make apply-aws_network_interface],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" apply-aws_network_interface],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([apply data-aws_network_interface])
 AT_SKIP_IF([test ! -d "$SRCDIR"cases/data_aws_network_interface])
-AT_CHECK([cd "$SRCDIR" && make apply-data_aws_network_interface],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" apply-data_aws_network_interface],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([destroy aws_network_interface])
-AT_CHECK([cd "$SRCDIR" && make destroy-aws_network_interface],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" destroy-aws_network_interface],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([import aws_network_interface])

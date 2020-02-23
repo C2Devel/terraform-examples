@@ -1,20 +1,20 @@
 AT_BANNER([plan,apply,destroy,import aws_security_group resource])
 
 AT_SETUP([plan aws_security_group])
-AT_CHECK([cd "$SRCDIR" && make plan-aws_security_group],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" plan-aws_security_group],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([apply aws_security_group])
-AT_CHECK([cd "$SRCDIR" && make apply-aws_security_group],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" apply-aws_security_group],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([apply data-aws_security_group])
 AT_SKIP_IF([test ! -d "$SRCDIR"cases/data_aws_security_group])
-AT_CHECK([cd "$SRCDIR" && make apply-data_aws_security_group],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" apply-data_aws_security_group],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([destroy aws_security_group])
-AT_CHECK([cd "$SRCDIR" && make destroy-aws_security_group],,[ignore],[ignore])
+AT_CHECK([make -C "$SRCDIR" destroy-aws_security_group],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([import aws_security_group])
