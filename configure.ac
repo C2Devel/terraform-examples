@@ -21,21 +21,7 @@ AC_CHECK_PROG(GIT,git,git)
 if test x$GIT = "x" ; then
   AC_MSG_ERROR("${dependencies}git is required to run examples.")
 fi
-
-AC_MSG_CHECKING([git revision])
-GIT_VERSION=$(git describe --tags --match 'v*' 2>/dev/null | sed 's/^v//')
-if test -z "$GIT_VERSION"; then
-  AC_MSG_RESULT([no])
-else
-  AC_MSG_RESULT([$GIT_VERSION])
-  VERSION="$GIT_VERSION"
-fi
-
-AC_CHECK_PROG(YES,yes,yes)
-if test x$YES = "x" ; then
-  AC_MSG_ERROR("${dependencies}yes is required to run examples.")
-fi
-yes_version=$(yes --version | head -n 1 | awk '{print $4}')
+GIT_VERSION=$(git --version | awk '{print $3}')
 
 AC_CHECK_PROG(MAKE,make,make)
 if test x$MAKE = "x" ; then
@@ -72,10 +58,10 @@ AC_MSG_RESULT([
     General configuration:
 
       Make version: .................. ${make_version}
+      Git version: ................... ${GIT_VERSION}
       Terraform version: ............. ${terraform_version}
       Find version: .................. ${find_version}
       Xargs version: ................. ${xargs_version}
-      Yes version: ................... ${yes_version}
 
 ------------------------------------------------------------------------
 ])
