@@ -59,7 +59,6 @@
 ## Installation
 
 * Install [autoconf](https://www.gnu.org/software/autoconf/#downloading)
-
 * Generate and run configure script:
 
 ```sh

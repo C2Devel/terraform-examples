@@ -1,7 +1,7 @@
 resource "aws_instance" "test_instance_with_override" {
-  ami           = "${var.ami}"
-  instance_type = "${var.instance_type}"
-  subnet_id     = "${aws_subnet.test_subnet.id}"
+  ami           = var.ami
+  instance_type = var.instance_type
+  subnet_id     = aws_subnet.test_subnet.id
 
   # NOTE: 'root_block_device' section is required for
   #       proper detection of the instance root device
