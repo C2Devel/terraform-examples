@@ -1,6 +1,6 @@
 resource "aws_security_group" "security_group" {
   # NOTE: 'revoke_rules_on_delete', 'prefix_list_ids' attributes are not supported.
-  vpc_id      = "${aws_vpc.test_vpc.id}"
+  vpc_id      = aws_vpc.test_vpc.id
   name_prefix = "sg_"
   description = "security group description"
 
@@ -9,7 +9,7 @@ resource "aws_security_group" "security_group" {
     from_port       = 0
     to_port         = 65535
     protocol        = "udp"
-    security_groups = ["${aws_security_group.test_security_group.id}"]
+    security_groups = [aws_security_group.test_security_group.id]
   }
 
   ingress {
@@ -30,6 +30,6 @@ resource "aws_security_group" "security_group" {
     from_port       = 0
     to_port         = 65535
     protocol        = "udp"
-    security_groups = ["${aws_security_group.test_security_group.id}"]
+    security_groups = [aws_security_group.test_security_group.id]
   }
 }

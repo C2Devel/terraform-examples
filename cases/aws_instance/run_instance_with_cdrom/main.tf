@@ -27,7 +27,7 @@ resource "aws_ami" "test_ami_with_cdrom" {
 }
 
 resource "aws_instance" "test_instance_with_cdrom" {
-  ami           = "${aws_ami.test_ami_with_cdrom.id}"
-  instance_type = "${var.instance_type}"
-  subnet_id     = "${aws_subnet.test_subnet.id}"
+  ami           = aws_ami.test_ami_with_cdrom.id
+  instance_type = var.instance_type
+  subnet_id     = aws_subnet.test_subnet.id
 }

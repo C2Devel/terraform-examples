@@ -1,5 +1,5 @@
 resource "aws_security_group" "source_security_group" {
-  vpc_id = "${aws_vpc.test_vpc.id}"
+  vpc_id = aws_vpc.test_vpc.id
   name   = "source_security_group"
 }
 
@@ -10,8 +10,8 @@ resource "aws_security_group_rule" "allow_udp" {
   to_port                  = 33
   description              = "some_description"
   protocol                 = "udp"
-  source_security_group_id = "${aws_security_group.source_security_group.id}"
-  security_group_id        = "${aws_security_group.test_security_group.id}"
+  source_security_group_id = aws_security_group.source_security_group.id
+  security_group_id        = aws_security_group.test_security_group.id
 }
 
 resource "aws_security_group_rule" "allow_icmp" {
@@ -20,5 +20,5 @@ resource "aws_security_group_rule" "allow_icmp" {
   to_port           = 255
   protocol          = "icmp"
   cidr_blocks       = ["1.1.1.0/24"]
-  security_group_id = "${aws_security_group.test_security_group.id}"
+  security_group_id = aws_security_group.test_security_group.id
 }

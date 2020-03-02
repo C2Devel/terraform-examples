@@ -3,6 +3,6 @@ variable "network_acls_count" {
 }
 
 resource "aws_network_acl" "test_network_acl" {
-  count  = "${var.network_acls_count}"
-  vpc_id = "${aws_vpc.test_vpc.id}"
+  count  = var.network_acls_count
+  vpc_id = aws_vpc.test_vpc.id
 }

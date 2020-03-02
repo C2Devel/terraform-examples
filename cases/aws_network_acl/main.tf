@@ -1,6 +1,6 @@
 resource "aws_network_acl" "test_network_acl" {
   # NOTE: 'ipv6_cidr_block' and 'subnet_id' attributes are not supported.
-  vpc_id = "${aws_vpc.test_vpc.id}"
+  vpc_id = aws_vpc.test_vpc.id
 
   ingress {
     protocol   = -1
@@ -32,5 +32,5 @@ resource "aws_network_acl" "test_network_acl" {
     cidr_block = "1.2.3.4/32"
   }
 
-  subnet_ids = ["${aws_subnet.test_subnet.id}"]
+  subnet_ids = [aws_subnet.test_subnet.id]
 }

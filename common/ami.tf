@@ -1,10 +1,10 @@
 resource "aws_ebs_volume" "test_volume" {
-  availability_zone = "${var.az}"
+  availability_zone = var.az
   size              = 32
 }
 
 resource "aws_ebs_snapshot" "test_snapshot" {
-  volume_id = "${aws_ebs_volume.test_volume.id}"
+  volume_id = aws_ebs_volume.test_volume.id
 }
 
 resource "aws_ami" "test_ami" {
@@ -20,6 +20,6 @@ resource "aws_ami" "test_ami" {
 
   ebs_block_device {
     device_name = "disk1"
-    snapshot_id = "${aws_ebs_snapshot.test_snapshot.id}"
+    snapshot_id = aws_ebs_snapshot.test_snapshot.id
   }
 }
