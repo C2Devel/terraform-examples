@@ -1,5 +1,5 @@
 Supported AWS resources
-=======================
+======================
 
 .. toctree::
 
