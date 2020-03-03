@@ -70,6 +70,6 @@ AC_CONFIG_TESTDIR([tests])
 AC_CONFIG_FILES([tests/Makefile tests/atlocal])
 
 echo "Type \"make init\" to init terraform provider";
-echo "Type \"make\" to run all examples";
+echo "Type \"make check\" to run all examples";
 
 AC_OUTPUT

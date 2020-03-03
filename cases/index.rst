@@ -4,4 +4,4 @@ Supported AWS resources
 .. toctree::
    :glob:
 
-   aws*
+   aws*/README
