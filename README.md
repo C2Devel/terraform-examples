@@ -59,6 +59,9 @@
 ## Installation
 
 * Install [autoconf](https://www.gnu.org/software/autoconf/#downloading)
+
+* Install [automake, libtool(MacOS)](https://superuser.com/questions/383580/how-to-install-autoconf-automake-and-related-tools-on-mac-os-x-from-source)
+
 * Generate and run configure script:
 
 ```sh
