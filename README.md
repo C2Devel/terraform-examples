@@ -95,3 +95,17 @@
 ## Tests
 
 * Run ``make check`` to run all tests via autotest test framework
+
+## Contributors
+
+Thanks goes to these wonderful people:
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+  <td align="center"><a href="https://github.com/gmmephisto"><img src="https://avatars2.githubusercontent.com/u/1840423?v=4" width="100px;" alt=""/><br /><sub><b>Mikhail Ushanov</b></sub></a><br />
+  <td align="center"><a href="https://github.com/Ubun1"><img src="https://avatars1.githubusercontent.com/u/13261595?v=4" width="100px;" alt=""/><br /><sub><b>Nikita Kretov</b></sub></a><br />
+  </tr>
+</table>
