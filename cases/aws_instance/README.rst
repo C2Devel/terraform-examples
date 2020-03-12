@@ -33,6 +33,24 @@ Unsupported attributes
 * ``credit_specification``
 * ``private_ip``
 
+Special notes
+~~~~~~~~~~~~~
+This resource supports ``tags`` attribute
+
+Example tag
+
+.. code-block::
+
+resource "aws_instance" "test" {
+    ...
+    tags = {
+Name = "test"
+        }
+
+    ...
+
+}
+
 Example
 -------
 .. literalinclude:: main.tf
