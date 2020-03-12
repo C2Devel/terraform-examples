@@ -34,22 +34,22 @@ Unsupported attributes
 * ``private_ip``
 
 Special notes
-~~~~~~~~~~~~~
-This resource supports ``tags`` attribute
+-------------
+
+This resource supports ``tags`` attribute:
 
 Example tag
-
+~~~~~~~~~~~
 .. code-block::
 
-resource "aws_instance" "test" {
-    ...
-    tags = {
-Name = "test"
-        }
+   resource "aws_instance" "test" {
+       ...
 
-    ...
-
-}
+       tags = {
+         Name = "value"
+       }
+       ...
+    }
 
 Example
 -------
