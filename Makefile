@@ -7,14 +7,6 @@ TRASH_FILES := terraform.tfstate terraform.tfstate.backup crash.log
 AUTOTEST_ARTIFACTS := atlocal atconfig Makefile package.m4 testsuite testsuite.log testsuite.dir
 AUTOCONF_ARTIFACTS := config.log configure config.status install-sh missing autom4te.cache
 
-define EXCLUDE_CASE_NAMES
-# FIXME: 'C2DEVEL-3389'
-aws_ami_from_instance
-# FIXME: 'C2DEVEL-4478'
-aws_customer_gateway
-aws_volume_attachment
-endef
-
 .PHONY: clean init show-cases clean-all
 .SILENT: clean init show-cases clean-all
 
