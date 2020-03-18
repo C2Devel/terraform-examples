@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "acl_example" {
   count = 4
   provider = "aws.noregion"
   bucket_prefix = "acl_example"
-  acl = "${var.acls[count.index]}"
+  acl = var.acls[count.index]
   force_destroy = true
 }
 

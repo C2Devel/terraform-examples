@@ -1,6 +1,6 @@
 resource "aws_default_security_group" "default_security_group" {
   # NOTE: for more information check 'aws_security_group' case
-  vpc_id = "${aws_vpc.test_vpc.id}"
+  vpc_id = aws_vpc.test_vpc.id
 
   ingress {
     from_port   = 0
