@@ -5,6 +5,11 @@ Summary
 -------
 This example introduces ``aws_ami`` resource.
 
+.. toctree::
+   :caption: additional examples
+
+   run_ami_with_tags_filter/README
+
 Differences
 -----------
 
