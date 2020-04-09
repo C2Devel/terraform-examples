@@ -9,7 +9,7 @@ resource "aws_ebs_volume" "test_volume" {
 data "aws_ebs_volume" "data-volume" {
   most_recent = true    # If search has a few result, the newer will be choose
 
-depends_on = [
+  depends_on = [
     aws_ebs_volume.test_volume
   ]
 
@@ -30,7 +30,7 @@ data "aws_ebs_snapshot" "data-snap" {
   most_recent = true
   owners      = ["self"]
 
-depends_on = [
+  depends_on = [
     aws_ebs_snapshot.test_snapshot
   ]
 
