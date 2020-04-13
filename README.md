@@ -14,7 +14,8 @@
 
 ### ec2 resources
 
-* [aws_ami](cases/aws_ami/README.rst)
+* [aws_ami](cases/aws_ami/README.rst), more examples:
+  - [run ami with tags filter](cases/aws_ami/run_ami_with_tags_filter/README.rst)
 * [aws_ami_from_instance](cases/aws_ami_from_instance/README.rst)
 * [aws_ami_lauch_permission](cases/aws_ami_launch_permission/README.rst)
 * [aws_ebs_snapshot](cases/aws_ebs_snapshot/README.rst)
@@ -24,6 +25,7 @@
 * [aws_eip_association](cases/aws_eip_association/README.rst)
 * [aws_instance](cases/aws_instance/README.rst), more examples:
   - [run instance with cdrom](cases/aws_instance/run_instance_with_cdrom/README.rst)
+  - [run instance with data source ami](cases/aws_instance/run_instance_with_data_source_ami/README.rst)
   - [run instance with ebs override](cases/aws_instance/run_instance_with_ebs_override/README.rst)
   - [run instance remove cdrom](cases/aws_instance/run_instances_remove_cdrom/README.rst)
 * [aws_key_pair](cases/aws_key_pair/README.rst)
