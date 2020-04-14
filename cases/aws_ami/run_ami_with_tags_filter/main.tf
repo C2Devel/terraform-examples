@@ -53,14 +53,6 @@ resource "aws_ami" "test_ami_from_snapshot" {
 
   root_device_name = "disk1"
 
-  ephemeral_block_device {
-    # NOTE: 'cdrom<N>' and 'floppy<N>' values is supported for
-    #       'device_name' and 'virtual_name' attributes
-    device_name = "cdrom1"
-
-    virtual_name = "cdrom1"
-  }
-
   ebs_block_device {
     # NOTE: for list of supported attributes check
     #       'aws_ebs_volume' case.
