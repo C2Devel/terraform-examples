@@ -21,7 +21,7 @@ resource "aws_placement_group" "test_placement_group" {
 resource "aws_instance" "test_instance" {
   # NOTE: 'tenancy', 'host_id', 'cpu_core_count', 'cpu_threat_per_code',
   #       'ebs_optimized', 'get_password_data', 'monitoring', 'iam_instance_profile',
-  #       'ipv6_address_count', 'ipv6_addresses', 'volume_tags', 'network_interface',
+  #       'ipv6_address_count', 'ipv6_addresses', 'network_interface',
   #       'credit_specification', 'private_ip' attributes are not supported.
   ami = var.ami
 

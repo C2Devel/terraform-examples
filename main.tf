@@ -30,6 +30,12 @@ variable "instance_type" {
 variable "account_id" {
 }
 
+variable "template_owner" {
+}
+
+variable "template_name" {
+}
+
 variable "insecure" {
   default = false
 }
