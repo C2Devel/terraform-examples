@@ -111,6 +111,7 @@ Thanks goes to these wonderful people:
   <tr>
   <td align="center"><a href="https://github.com/gmmephisto"><img src="https://avatars2.githubusercontent.com/u/1840423?v=4" width="100px;" alt=""/><br /><sub><b>Mikhail Ushanov</b></sub></a><br />
   <td align="center"><a href="https://github.com/ancient07"><img src="https://avatars0.githubusercontent.com/u/47169025?v=4" width="100px;" alt=""/><br /><sub><b>ancient07</b></sub></a><br />
+  <td align="center"><a href="https://github.com/aeko-empt"><img src="https://avatars1.githubusercontent.com/u/61469017?v=4" width="100px;" alt=""/><br /><sub><b>aeko-empt</b></sub></a><br />
   <td align="center"><a href="https://github.com/Ubun1"><img src="https://avatars1.githubusercontent.com/u/13261595?v=4" width="100px;" alt=""/><br /><sub><b>Nikita Kretov</b></sub></a><br />
   </tr>
 </table>
