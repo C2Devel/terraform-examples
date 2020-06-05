@@ -11,6 +11,7 @@ This example introduces ``aws_instance`` resource.
    run_instance_with_cdrom/README
    run_instance_with_ebs_override/README
    run_instance_with_data_source_ami/README
+   run_instance_default_subnet/README
    run_instances_remove_cdrom/README
 
 Differences
