@@ -11,6 +11,7 @@ This example introduces ``aws_instance`` resource.
    run_instance_with_cdrom/README
    run_instance_with_ebs_override/README
    run_instance_with_data_source_ami/README
+   run_instance_with_existing_network_interface/README
    run_instance_default_subnet/README
    run_instances_remove_cdrom/README
 
@@ -31,7 +32,6 @@ Unsupported attributes
 * ``ipv6_address_count``
 * ``ipv6_addresses``
 * ``volume_tags``
-* ``network_interface``
 * ``credit_specification``
 
 Special notes
