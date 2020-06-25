@@ -54,19 +54,35 @@ clean: clean-cases clean-tests
 clean-all: clean
 	rm -rf $(WORKDIR)/.terraform/
 
+define TERRAFORM_IMPORT_CASE_CMD
+
+.PHONY: import-$(lastword $(subst /, ,$(1))) 
+import-$(lastword $(subst /, ,$(1))): 
+	mv $(1)terraform.tfstate $(1)terraform.tfstate.main ;\
+	$(TERRAFORM) import \
+	-no-color \
+	-state $(1)terraform.tfstate \
+	-config $(1) \
+	$(shell jq -r '.resources[] | "\(.type).\(.name) \(.instances[].attributes.id)"' $(1)terraform.tfstate 2>/dev/null) || exit 1 ;\
+	rm $(1)terraform.tfstate ;\
+	mv $(1)terraform.tfstate.main $(1)terraform.tfstate ;
+endef
+
 define TERRAFORM_CASE_CMD
 
 .PHONY: $(1)-$(lastword $(subst /, ,$(2)))
 $(1)-$(lastword $(subst /, ,$(2))): 
-	cd $(2) ;\
 	ln -sf $(WORKDIR)/.terraform $(2) ;\
 	ln -sf $(WORKDIR)/main.tf $(2)provider.tf ;\
 	ln -sf $(WORKDIR)/terraform.tfvars $(2) ;\
-	TF_LOG=$(TF_LOG) $(TERRAFORM) $(1) $(3) -no-color ;
+	TF_LOG=$(TF_LOG) $(TERRAFORM) $(1) $(3) -no-color -state $(2)terraform.tfstate $(2) ;
 endef
 
 $(foreach path,$(CASES_PATHS),$(eval $(call TERRAFORM_CASE_CMD,plan,$(path))))
 $(foreach path,$(CASES_PATHS),$(eval $(call TERRAFORM_CASE_CMD,apply,$(path),-auto-approve)))
 $(foreach path,$(CASES_PATHS),$(eval $(call TERRAFORM_CASE_CMD,destroy,$(path),-auto-approve)))
+
+
+$(foreach path,$(CASES_PATHS),$(eval $(call TERRAFORM_IMPORT_CASE_CMD,$(path))))
 
 check: ; $(MAKE) -C tests $@-local
