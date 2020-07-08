@@ -5,7 +5,6 @@ dependencies="
   Please install next dependencies before using terraform-examples:
 
       make: ........................ > 3.x.x
-      git: ......................... > 2.x.x
       sed: ......................... > 4.x.x
       terraform: ................... > 0.12.x
       findutils: ................... > 4.x.x
@@ -16,12 +15,6 @@ dependencies="
 
 AC_PROG_SED
 AC_PROG_AWK
-
-AC_CHECK_PROG(GIT,git,git)
-if test x$GIT = "x" ; then
-  AC_MSG_ERROR("${dependencies}git is required to run examples.")
-fi
-GIT_VERSION=$(git --version | awk '{print $3}')
 
 AC_CHECK_PROG(MAKE,make,make)
 if test x$MAKE = "x" ; then
@@ -58,7 +51,6 @@ AC_MSG_RESULT([
     General configuration:
 
       Make version: .................. ${make_version}
-      Git version: ................... ${GIT_VERSION}
       Terraform version: ............. ${terraform_version}
       Find version: .................. ${find_version}
       Xargs version: ................. ${xargs_version}
@@ -66,10 +58,12 @@ AC_MSG_RESULT([
 ------------------------------------------------------------------------
 ])
 
+AC_CHECK_FILE(terraform.tfvars,[],AC_MSG_ERROR("terraform.tfvars file is required"))
+
 AC_CONFIG_TESTDIR([tests])
 AC_CONFIG_FILES([tests/Makefile tests/atlocal])
 
-echo "Type \"make init\" to init terraform provider";
+echo "Type \"make\" to init terraform provider";
 echo "Type \"make check\" to run all examples";
 
 AC_OUTPUT

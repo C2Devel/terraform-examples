@@ -25,8 +25,6 @@ init: show-perfect-title ; @$(TERRAFORM) init
 
 show-perfect-title: ; @echo "$$TITLE"
 
-assert-file-present = $(if $(wildcard $1),, $(error '$1' missing and needed to run this target))
-
 show-cases:
 	find ./cases/ -mindepth 2 -name README.rst | \
 		awk -F'/' '{print $$(NF-1)}'
@@ -59,7 +57,6 @@ clean-all: clean
 define TERRAFORM_CASE_CMD
 
 .PHONY: $(1)-$(lastword $(subst /, ,$(2)))
-$(1)-$(lastword $(subst /, ,$(2))): export _check = $(call assert-file-present, terraform.tfvars)
 $(1)-$(lastword $(subst /, ,$(2))): 
 	cd $(2) ;\
 	ln -sf $(WORKDIR)/.terraform $(2) ;\
@@ -72,4 +69,4 @@ $(foreach path,$(CASES_PATHS),$(eval $(call TERRAFORM_CASE_CMD,plan,$(path))))
 $(foreach path,$(CASES_PATHS),$(eval $(call TERRAFORM_CASE_CMD,apply,$(path),-auto-approve)))
 $(foreach path,$(CASES_PATHS),$(eval $(call TERRAFORM_CASE_CMD,destroy,$(path),-auto-approve)))
 
-check: ; cd tests && make $@-local
+check: ; $(MAKE) -C tests $@-local
