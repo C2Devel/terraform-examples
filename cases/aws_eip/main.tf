@@ -5,7 +5,6 @@ resource "aws_instance" "test1" {
 }
 
 resource "aws_eip" "test1" {
-  # NOTE: 'public_ipv4_pull' is not supported.
   instance = aws_instance.test1.id
 
   vpc = true

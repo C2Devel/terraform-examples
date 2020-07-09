@@ -12,12 +12,13 @@ data "aws_ami" "test_data_ami" {
 resource "aws_instance" "test_instance" {
   # NOTE: 'tenancy', 'host_id', 'cpu_core_count', 'cpu_threat_per_code',
   #       'ebs_optimized', 'get_password_data', 'monitoring', 'iam_instance_profile',
-  #       'ipv6_address_count', 'ipv6_addresses', 'network_interface',
-  #       'credit_specification', 'private_ip' attributes are not supported.
+  #       'ipv6_address_count', 'ipv6_addresses', 'credit_specification'
+  #       attributes are not supported.
 
   ami                                  = data.aws_ami.test_data_ami.id
   availability_zone                    = var.az
   instance_type                        = var.instance_type
   vpc_security_group_ids               = [ aws_security_group.test_security_group.id ]
   subnet_id                            = aws_subnet.test_subnet.id
+  private_ip                           = cidrhost(aws_subnet.test_subnet.cidr_block, 10)
 }
