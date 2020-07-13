@@ -64,19 +64,19 @@
 
 * Install [automake, libtool(MacOS)](https://superuser.com/questions/383580/how-to-install-autoconf-automake-and-related-tools-on-mac-os-x-from-source)
 
+* Create ``terraform.tfvars`` file:
+
+```sh
+  $ cp terraform.tfvars.example terraform.tfvars
+```
+
 * Generate and run configure script:
 
 ```sh
   $ autoreconf -i && ./configure
 ```
 
-* Run ``make init`` to init ``aws provider``
-
-* Create ``terraform.tfvars`` file:
-
-```sh
-  $ cp terraform.tfvars.example terraform.tfvars
-```
+* Run ``make`` to init ``aws provider``
 
 * Update ``terraform.tfvars`` file with desirable values
 
