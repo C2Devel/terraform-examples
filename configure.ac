@@ -7,6 +7,7 @@ dependencies="
       make: ........................ > 3.x.x
       sed: ......................... > 4.x.x
       terraform: ................... > 0.12.x
+      jq: .......................... > 1.x
       findutils: ................... > 4.x.x
       coreutils: ................... > 8.x.x
 
@@ -43,6 +44,12 @@ fi
 find_version=$(find --version | head -n 1 | awk '{print $4}')
 xargs_version=$(xargs --version | head -n 1 | awk '{print $4}')
 
+AC_CHECK_PROG(JQ,jq,jq)
+if test x$JQ = "x" ; then
+  AC_MSG_ERROR("${dependencies}jq is required to run examples.")
+fi
+jq_version=$(jq --version | awk -F- '{print $2}')
+
 
 AC_MSG_RESULT([
 ------------------------------------------------------------------------
@@ -52,6 +59,7 @@ AC_MSG_RESULT([
 
       Make version: .................. ${make_version}
       Terraform version: ............. ${terraform_version}
+      JQ version: ...................  ${jq_version}
       Find version: .................. ${find_version}
       Xargs version: ................. ${xargs_version}
 
