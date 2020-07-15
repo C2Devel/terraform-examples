@@ -13,10 +13,12 @@ AT_SKIP_IF([test ! -d "$SRCDIR"cases/data_aws_vpc])
 AT_CHECK([make -C "$SRCDIR" apply-data_aws_vpc],,[ignore],[ignore])
 AT_CLEANUP
 
+AT_SETUP([import aws_vpc])
+AT_CHECK([make -C "$SRCDIR" import-aws_vpc],,[ignore],[ignore])
+AT_CLEANUP
+
 AT_SETUP([destroy aws_vpc])
 AT_CHECK([make -C "$SRCDIR" destroy-aws_vpc],,[ignore],[ignore])
 AT_CLEANUP
 
-AT_SETUP([import aws_vpc])
-AT_SKIP_IF([true])
-AT_CLEANUP
+
