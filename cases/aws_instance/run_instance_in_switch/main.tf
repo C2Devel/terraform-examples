@@ -1,5 +1,5 @@
 resource "aws_network_interface" "test_interface" {
-  # NOTE: in this case `false` is only valid opyion
+  # NOTE: in this case `false` is only valid option
   #       for `source_dest_check` attribute
   subnet_id = var.switch_id
 
