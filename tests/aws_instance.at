@@ -53,6 +53,14 @@ AT_SETUP([destroy run_instance_with_existing_network_interface])
 AT_CHECK([make -C "$SRCDIR" destroy-run_instance_with_existing_network_interface],,[ignore],[ignore])
 AT_CLEANUP
 
+AT_SETUP([apply run_instance_in_switch])
+AT_CHECK([make -C "$SRCDIR" apply-run_instance_in_switch],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([destroy run_instance_in_switch])
+AT_CHECK([make -C "$SRCDIR" destroy-run_instance_in_switch],,[ignore],[ignore])
+AT_CLEANUP
+
 AT_SETUP([apply run_instance_default_subnet])
 AT_CHECK([make -C "$SRCDIR" apply-run_instance_default_subnet],,[ignore],[ignore])
 AT_CLEANUP

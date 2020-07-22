@@ -28,6 +28,7 @@
   - [run instance with data source ami](cases/aws_instance/run_instance_with_data_source_ami/README.rst)
   - [run instance with ebs override](cases/aws_instance/run_instance_with_ebs_override/README.rst)
   - [run instance remove cdrom](cases/aws_instance/run_instances_remove_cdrom/README.rst)
+  - [run instance in switch](cases/aws_instance/run_instance_in_switch/README.rst)
   - [run instace with existing network interface](cases/aws_instance/run_instance_with_existing_network_interface)
   - [run instance default subnet](cases/aws_instance/run_instance_default_subnet)
 * [aws_key_pair](cases/aws_key_pair/README.rst)

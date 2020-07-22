@@ -13,6 +13,7 @@ This example introduces ``aws_instance`` resource.
    run_instance_with_data_source_ami/README
    run_instance_with_existing_network_interface/README
    run_instance_default_subnet/README
+   run_instance_in_switch/README
    run_instances_remove_cdrom/README
 
 Differences
