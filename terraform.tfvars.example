@@ -20,3 +20,5 @@ public_ipv4_pool = "<public_pool>"
 template_owner = "templates@cloud.croc.ru"
 
 template_name = "Fedora 29 [Cloud image]"
+
+switch_id = ""

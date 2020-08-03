@@ -4,6 +4,9 @@ terraform {
   }
 }
 
+variable "switch_id" {
+}
+
 variable "ec2_url" {
 }
 
