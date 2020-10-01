@@ -45,8 +45,6 @@ resource "aws_ami" "test_ami_from_snapshot" {
   #       'architecture' attribute is not supported.
   name = "test_ami"
 
-  description = "test_ami_description"
-
   # NOTE: 'virtualization_type' attribute must be overridden
   #       with 'kvm-virtio' or 'kvm-legacy' value
   virtualization_type = "kvm-virtio"

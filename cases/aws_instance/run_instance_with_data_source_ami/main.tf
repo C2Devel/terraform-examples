@@ -2,7 +2,7 @@ data "aws_ami" "test_data_ami" {
   most_recent      = true
   owners           = [var.template_owner]   # This option is required, for example you can use ["self"] for your images.
 
-# You can use different filters, for example "name", "description", "image_id", "tag".
+# You can use different filters, for example "name", "image_id", "tag".
   filter {
     name   = "name"
     values = [var.template_name]
