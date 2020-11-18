@@ -1,5 +1,5 @@
 variable "types" {
-  default = ["gp2", "st2"]
+  default = ["st2", "gp2", "io2"]
 }
 
 resource "aws_ebs_volume" "test_volume_iops" {
@@ -11,6 +11,7 @@ resource "aws_ebs_volume" "test_volume_iops" {
 
   availability_zone = var.az
 
+  iops = var.types[count.index] == "io2" ? "300" : null
   size = 32
   type = var.types[count.index]
 }

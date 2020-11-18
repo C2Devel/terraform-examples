@@ -20,6 +20,7 @@ resource "aws_instance" "test_instance_with_override" {
   ebs_block_device {
     device_name = "disk3"
     volume_size = 32
-    volume_type = "gp2"
+    volume_type = "io2"
+    iops = 100
   }
 }
