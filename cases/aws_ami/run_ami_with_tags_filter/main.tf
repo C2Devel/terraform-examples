@@ -48,8 +48,8 @@ resource "aws_ami" "test_ami_from_snapshot" {
   description = "test_ami_description"
 
   # NOTE: 'virtualization_type' attribute must be overridden
-  #       with 'kvm-virtio' or 'kvm-legacy' value
-  virtualization_type = "kvm-virtio"
+  #       with 'hvm' value
+  virtualization_type = "hvm"
 
   root_device_name = "disk1"
 

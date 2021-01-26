@@ -1,10 +1,10 @@
 resource "aws_ami" "test_ami" {
-  name             = "test_ami"
+  name             = "first_ami"
   root_device_name = "cdrom1"
 
   # NOTE: 'virtualization_type' attribute must be overridden
-  #       with 'kvm-virtio' or 'kvm-legacy' value
-  virtualization_type = "kvm-virtio"
+  #       with 'hvm' value
+  virtualization_type = "hvm"
 
   # NOTE: empty 'cdrom' and 'floppy' slots
   #       must be created as 'ephemeral' block devices
@@ -15,8 +15,9 @@ resource "aws_ami" "test_ami" {
 
   ebs_block_device {
     device_name = "disk1"
-    volume_type = "st2"
+    volume_type = "io2"
     volume_size = 32
+    iops = 300
   }
 
   timeouts {
@@ -34,7 +35,8 @@ resource "aws_instance" "test_instance" {
   # NOTE: 'root_block_device' section is required for
   #       proper detection of the instance root device
   root_block_device {
-    volume_type = "st2"
+    volume_type = "io2"
+    iops = 100
   }
 
   ebs_block_device {
