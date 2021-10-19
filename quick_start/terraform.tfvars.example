@@ -1,0 +1,14 @@
+secret_key       = "ENTER_YOUR_SECRET_KEY_HERE"
+access_key       = "ENTER_YOUR_ACCESS_KEY_HERE"
+public_key       = "ENTER_YOUR_PUBLIC_KEY_HERE"
+pubkey_name      = "My project SSH key"
+bucket_name      = "my-project-bucket"
+az               = "ru-msk-comp1p"
+eips_count       = 1
+vms_count        = 2
+hostnames        = ["webapp", "db"]
+allow_tcp_ports  = [22, 80, 443]
+vm_template      = "cmi-3CF790E9"
+vm_instance_type = "m5.2small"
+vm_volume_type   = "gp2"
+vm_volume_size   = 32
