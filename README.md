@@ -31,8 +31,10 @@
   - [run instance remove cdrom](cases/aws_instance/run_instances_remove_cdrom/README.rst)
   - [run instance in switch](cases/aws_instance/run_instance_in_switch/README.rst)
   - [run instance with existing network interface](cases/aws_instance/run_instance_with_existing_network_interface/README.rst)
+  - [run instance with launch template](cases/aws_instance/run_instance_with_launch_template/README.rst)
   - [run instance default subnet](cases/aws_instance/run_instance_default_subnet/README.rst)
 - [aws_key_pair](cases/aws_key_pair/README.rst)
+- [aws_launch_template](cases/aws_launch_template/README.rst)
 - [aws_placement_group](cases/aws_placement_group/README.rst)
 - [aws_volume_attachment](cases/aws_volume_attachment/README.rst)
 
