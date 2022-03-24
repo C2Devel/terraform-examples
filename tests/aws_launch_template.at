@@ -1,0 +1,22 @@
+AT_BANNER([plan,apply,destroy,import aws_launch_template resource])
+
+AT_SETUP([plan aws_launch_template])
+AT_CHECK([make -C "$SRCDIR" plan-aws_launch_template],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply aws_launch_template])
+AT_CHECK([make -C "$SRCDIR" apply-aws_launch_template],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([apply data-aws_launch_template])
+AT_SKIP_IF([test ! -d "$SRCDIR"cases/aws_launch_template])
+AT_CHECK([make -C "$SRCDIR" apply-aws_launch_template],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([destroy aws_launch_template])
+AT_CHECK([make -C "$SRCDIR" destroy-aws_launch_template],,[ignore],[ignore])
+AT_CLEANUP
+
+AT_SETUP([import aws_launch_template])
+AT_SKIP_IF([true])
+AT_CLEANUP
