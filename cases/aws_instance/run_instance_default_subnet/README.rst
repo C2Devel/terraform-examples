@@ -7,4 +7,4 @@ This example introduces ``aws_instance`` resource with default subnet.
 
 Example
 -------
-.. literalinclude:: main.tf
+`main.tf <main.tf>`_
