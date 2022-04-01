@@ -1,6 +1,13 @@
 terraform {
   required_providers {
-    aws = "~> 3.63.0"
+    aws = {
+      source  = "hc-registry.website.cloud.croc.ru/hashicorp/aws"
+      version = "~> 3.63.0"
+    }
+    tls = {
+      source  = "hc-registry.website.cloud.croc.ru/hashicorp/tls"
+      version = "~> 3.1.0"
+    }
   }
 }
 
