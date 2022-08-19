@@ -43,8 +43,8 @@ variable "allow_tcp_ports" {
 }
 
 variable "vm_template" {
-  description = "Enter the template ID to create a VM from (cmi-3CF790E9 [CentOS 8.2] by default)"
-  default     = "cmi-3CF790E9"
+  description = "Enter the template ID to create a VM from (cmi-AC76609F [CentOS 8.2] by default)"
+  default     = "cmi-AC76609F"
 }
 
 variable "vm_instance_type" {
