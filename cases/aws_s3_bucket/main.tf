@@ -85,7 +85,7 @@ resource "aws_s3_bucket" "versioning_example" {
 
   versioning {
     enabled = true
-    mfa_delete = true
+    mfa_delete = false
   }
 }
 

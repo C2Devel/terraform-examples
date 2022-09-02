@@ -32,8 +32,10 @@ resource "aws_ami" "test_ami_from_snapshot" {
     # NOTE: for list of supported attributes check
     #       'aws_ebs_volume' case.
     #       'kms_key_id' attribute is not supported
+    #
+    #       The 'volume_type' must be defined from the supported types ['st2', 'gp2', 'io2']
+    volume_type = "st2"
     device_name = "disk1"
-
     snapshot_id = aws_ebs_snapshot.test_snapshot.id
   }
 

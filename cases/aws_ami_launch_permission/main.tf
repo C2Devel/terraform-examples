@@ -17,6 +17,9 @@ resource "aws_ami" "test_ami" {
   root_device_name = "disk1"
 
   ebs_block_device {
+    # NOTE:
+    #       The 'volume_type' must be defined from the supported types ['st2', 'gp2', 'io2']
+    volume_type = "st2"
     device_name = "disk1"
     snapshot_id = aws_ebs_snapshot.test_snapshot.id
   }

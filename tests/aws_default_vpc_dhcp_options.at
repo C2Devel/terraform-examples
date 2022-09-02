@@ -1,6 +1,7 @@
-AT_BANNER([plan aws_default_vpc_dhcp_options resource; most of tests are skipped due to c2 bugs])
+AT_BANNER([aws_default_vpc_dhcp_options resource; most of tests are skipped due to c2 bugs])
 
 AT_SETUP([plan aws_default_vpc_dhcp_options])
+AT_SKIP_IF([true])
 AT_CHECK([make -C "$SRCDIR" plan-aws_default_vpc_dhcp_options],,[ignore],[ignore])
 AT_CLEANUP
 

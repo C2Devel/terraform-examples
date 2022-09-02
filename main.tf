@@ -1,8 +1,8 @@
 terraform {
   required_providers {
     aws = {
-      source  = "hc-registry.website.cloud.croc.ru/hashicorp/aws"
-      version = "~> 3.63.0"
+      source  = "hc-registry.website.cloud.croc.ru/c2devel/croccloud"
+      version = "4.14.0-CROC1"
     }
     tls = {
       source  = "hc-registry.website.cloud.croc.ru/hashicorp/tls"
