@@ -1,5 +1,5 @@
 WORKDIR := $(abspath .)
-CASES_PATHS := $(sort $(dir $(wildcard $(WORKDIR)/cases/*/*/)))
+CASES_PATHS := $(sort $(dir $(wildcard $(WORKDIR)/cases/*/ $(WORKDIR)/cases/*/*/)))
 CASES_NAMES := $(foreach PATH, $(CASES_PATHS), $(lastword $(subst /, ,$(PATH))))
 
 TERRAFORM := $(shell which terraform)
@@ -52,7 +52,7 @@ clean: clean-cases clean-tests
 			rm -rf $(WORKDIR)/$(to_del) ;)
 
 clean-all: clean
-	rm -rf $(WORKDIR)/.terraform/
+	rm -rf $(WORKDIR)/.terraform/ $(WORKDIR)/.terraform.lock.hcl
 
 define TERRAFORM_IMPORT_CASE_CMD
 
@@ -75,7 +75,8 @@ $(1)-$(lastword $(subst /, ,$(2))):
 	ln -sf $(WORKDIR)/.terraform $(2) ;\
 	ln -sf $(WORKDIR)/main.tf $(2)provider.tf ;\
 	ln -sf $(WORKDIR)/terraform.tfvars $(2) ;\
-	TF_LOG=$(TF_LOG) $(TERRAFORM) $(1) $(3) -no-color -state $(2)terraform.tfstate $(2) ;
+	ln -sf $(WORKDIR)/.terraform.lock.hcl $(2) ;\
+	TF_LOG=$(TF_LOG) $(TERRAFORM) -chdir=$(2) $(1) $(3) -no-color -state $(2)terraform.tfstate;
 endef
 
 $(foreach path,$(CASES_PATHS),$(eval $(call TERRAFORM_CASE_CMD,plan,$(path))))

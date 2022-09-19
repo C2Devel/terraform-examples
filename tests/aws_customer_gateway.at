@@ -14,7 +14,6 @@ AT_CHECK([make -C "$SRCDIR" apply-data_aws_customer_gateway],,[ignore],[ignore])
 AT_CLEANUP
 
 AT_SETUP([destroy aws_customer_gateway])
-AT_SKIP_IF([true])
 AT_CHECK([make -C "$SRCDIR" destroy-aws_customer_gateway],,[ignore],[ignore])
 AT_CLEANUP
 

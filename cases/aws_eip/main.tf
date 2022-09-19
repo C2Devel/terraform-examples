@@ -17,5 +17,4 @@ resource "aws_network_interface" "test1" {
 resource "aws_eip" "test2" {
   vpc = true
   network_interface = aws_network_interface.test1.id
-  public_ipv4_pool = var.public_ipv4_pool
 }

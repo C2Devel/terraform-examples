@@ -3,6 +3,7 @@
 **/crash.log
 **/.terraform
 **/*tfstate*
+**/.terraform.lock.hcl
 
 # editor
 /.vscode/*
