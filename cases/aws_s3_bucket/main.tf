@@ -19,7 +19,7 @@ resource "aws_s3_bucket" "acl_example" {
 resource "aws_s3_bucket" "policy_example" {
   # NOTE: 'aws_s3_bucket_resource' with specific policy.
   #       More info about supported polices:
-  #       http://docs.website.cloud.croc.ru/en/api/s3/features.html#bucket-policy
+  #       https://docs.k2.cloud/en/api/s3/features.html#bucket-policy
   provider = aws.noregion
   bucket   = "policy_example"
   acl      = "private"
@@ -92,7 +92,7 @@ resource "aws_s3_bucket" "versioning_example" {
 resource "aws_s3_bucket" "lifecycle_example" {
   # NOTE: 'aws_s3_bucket' with various lifecycle rules.
   #       More info about supported lifecycle rules:
-  #       http://docs.website.cloud.croc.ru/en/api/s3/features.html#bucket-lifecycle
+  #       https://docs.k2.cloud/en/api/s3/features.html#bucket-lifecycle
   provider = aws.noregion
   bucket = "lifecycle_example"
 

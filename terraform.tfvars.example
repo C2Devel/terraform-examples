@@ -1,11 +1,11 @@
-ec2_url = "https://api.cloud.croc.ru"
-s3_url = "https://storage.cloud.croc.ru"
+ec2_url = "https://ec2.k2.cloud"
+s3_url = "https://s3.k2.cloud"
 
 secret_key = "<your_secret_key>"
 
 access_key = "<your_access_key>"
 
-region = "croc"
+region = "region-1"
 
 az = "ru-msk-vol51"
 
@@ -17,7 +17,7 @@ ami = "<desired_ami_id>"
 
 public_ipv4_pool = "<public_pool>"
 
-template_owner = "templates@cloud.croc.ru"
+template_owner = "templates@k2.cloud"
 
 template_name = "Fedora 29 [Cloud image]"
 
