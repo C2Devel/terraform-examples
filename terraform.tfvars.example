@@ -17,8 +17,7 @@ ami = "<desired_ami_id>"
 
 public_ipv4_pool = "<public_pool>"
 
-template_owner = "templates@k2.cloud"
-
-template_name = "Fedora 29 [Cloud image]"
+template_owner = "<desired_template_owner>"
+template_name = "<desired_template_name>"
 
 switch_id = ""
