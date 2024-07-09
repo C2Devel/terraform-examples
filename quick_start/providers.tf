@@ -3,19 +3,19 @@
 terraform {
   required_providers {
     aws = {
-      # Используем локальное зеркало Облака КРОК
-      # как источник загрузки провайдера c2devel/croccloud
-      source  = "hc-registry.website.cloud.croc.ru/c2devel/croccloud"
-      version = "4.14.0-CROC1"
+      # Используем локальное зеркало К2 Облака
+      # как источник загрузки провайдера c2devel/rockitcloud
+      source  = "hc-registry.website.k2.cloud/c2devel/rockitcloud"
+      version = "24.1.0"
     }
   }
 }
 
 # Подключаем и настраиваем провайдера для работы
-# со всеми сервисами Облака КРОК, кроме объектного хранилища
+# со всеми сервисами К2 Облака, кроме объектного хранилища
 provider "aws" {
   endpoints {
-    ec2 = "https://api.cloud.croc.ru"
+    ec2 = "https://ec2.k2.cloud"
   }
 
   skip_credentials_validation = true
@@ -25,7 +25,7 @@ provider "aws" {
   insecure   = false
   access_key = var.access_key
   secret_key = var.secret_key
-  region     = "croc"
+  region     = "region-1"
 }
 
 # Подключаем и настраиваем провайдера
@@ -33,7 +33,7 @@ provider "aws" {
 provider "aws" {
   alias = "noregion"
   endpoints {
-    s3 = "https://storage.cloud.croc.ru"
+    s3 = "https://s3.k2.cloud"
   }
 
   skip_credentials_validation = true

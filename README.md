@@ -1,6 +1,6 @@
-<h3 align="center">terraform in croc cloud</h3>
+<h3 align="center">Terraform examples for K2 Cloud</h3>
 <p align="center">reference test suite with supported resources</p>
-<p align="center">&#183; <a href="http://docs.website.cloud.croc.ru/ru/api/tools/terraform.html">Documentation</a> &#183;</p>
+<p align="center">&#183; <a href="https://docs.k2.cloud/ru/api/tools/terraform.html#terraformmanual">Documentation</a> &#183;</p>
 
 ---
 

@@ -1,11 +1,11 @@
 terraform {
   required_providers {
     aws = {
-      source  = "hc-registry.website.cloud.croc.ru/c2devel/croccloud"
-      version = "4.14.0-CROC1"
+      source  = "hc-registry.website.k2.cloud/c2devel/rockitcloud"
+      version = "24.1.0"
     }
     tls = {
-      source  = "hc-registry.website.cloud.croc.ru/hashicorp/tls"
+      source  = "hc-registry.website.k2.cloud/hashicorp/tls"
       version = "~> 3.1.0"
     }
   }
@@ -33,7 +33,7 @@ variable "public_ipv4_pool" {
 }
 
 variable "region" {
-  default = "croc"
+  default = "region-1"
 }
 
 variable "az" {
