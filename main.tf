@@ -33,7 +33,7 @@ variable "public_ipv4_pool" {
 }
 
 variable "region" {
-  default = "region-1"
+  default = "ru-msk"
 }
 
 variable "az" {

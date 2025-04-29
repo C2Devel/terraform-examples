@@ -25,7 +25,7 @@ provider "aws" {
   insecure   = false
   access_key = var.access_key
   secret_key = var.secret_key
-  region     = "region-1"
+  region     = "ru-msk"
 }
 
 # Подключаем и настраиваем провайдера
