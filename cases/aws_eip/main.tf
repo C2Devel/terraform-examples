@@ -6,8 +6,6 @@ resource "aws_instance" "test1" {
 
 resource "aws_eip" "test1" {
   instance = aws_instance.test1.id
-
-  vpc = true
 }
 
 resource "aws_network_interface" "test1" {
@@ -15,6 +13,5 @@ resource "aws_network_interface" "test1" {
 }
 
 resource "aws_eip" "test2" {
-  vpc = true
   network_interface = aws_network_interface.test1.id
 }
