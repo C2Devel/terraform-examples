@@ -4,9 +4,7 @@ resource "aws_instance" "test" {
   subnet_id     = aws_subnet.test_subnet.id
 }
 
-resource "aws_eip" "test1" {
-  vpc = true
-}
+resource "aws_eip" "test1" {}
 
 resource "aws_eip_association" "test1" {
   # NOTE: 'private_ip' attributes is not supported.
@@ -19,9 +17,7 @@ resource "aws_network_interface" "test" {
   subnet_id = aws_subnet.test_subnet.id
 }
 
-resource "aws_eip" "test2" {
-  vpc = true
-}
+resource "aws_eip" "test2" {}
 
 resource "aws_eip_association" "test2" {
   network_interface_id = aws_network_interface.test.id
