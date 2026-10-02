@@ -1,0 +1,1 @@
+../../common/nat_gw.tf

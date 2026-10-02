@@ -1,9 +1,7 @@
 resource "aws_network_interface" "test" {
-  # NOTE: 'security_groups', 'attachment',
-  #       'private_ips', 'private_ips_count'
-  #       attributes are not supported.
-
-  subnet_id = aws_subnet.test_subnet.id
-  description = "test description"
+  description       = "test description"
+  private_ips_count = 2
+  security_groups   = [aws_security_group.test_security_group.id]
   source_dest_check = true
+  subnet_id         = aws_subnet.test_subnet.id
 }

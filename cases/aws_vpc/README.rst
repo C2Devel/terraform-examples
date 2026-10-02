@@ -15,6 +15,7 @@ Unsupported attributes
 * ``enable_classiclink``
 * ``enable_classiclink_dns_support``
 * ``assign_generated_ipv6_cidr_block``
+* ``enable_dns_hostnames``
 
 Example
 -------

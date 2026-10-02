@@ -11,7 +11,7 @@ Differences
 Unsupported attributes
 ~~~~~~~~~~~~~~~~~~~~~~
 
-* ``map_public_ip_on_creation``
+* ``map_public_ip_on_launch``
 * ``assign_ipv6_address_on_creation``
 * ``ipv6_cidr_block``
 

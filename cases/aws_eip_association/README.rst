@@ -11,7 +11,6 @@ Differences
 Unsupported attributes
 ~~~~~~~~~~~~~~~~~~~~~~
 
-* ``public_ip``
 * ``allow_reassociation``
 * ``private_ip``
 

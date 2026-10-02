@@ -6,7 +6,7 @@ terraform {
       # Используем локальное зеркало К2 Облака
       # как источник загрузки провайдера c2devel/rockitcloud
       source  = "hc-registry.website.k2.cloud/c2devel/rockitcloud"
-      version = "~> 25.2"
+      version = "~> 25.5.5"
     }
   }
 }
@@ -14,7 +14,6 @@ terraform {
 # Подключаем и настраиваем провайдера для работы
 # со всеми сервисами К2 Облака
 provider "aws" {
-  insecure   = false
   access_key = var.access_key
   secret_key = var.secret_key
 

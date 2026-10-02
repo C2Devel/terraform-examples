@@ -35,4 +35,3 @@ Supported values for ``acl`` attribute are:
 Example
 -------
 .. literalinclude:: main.tf
-

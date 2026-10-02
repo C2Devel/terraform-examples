@@ -29,7 +29,6 @@
   - [run instance with data source ami](cases/aws_instance/run_instance_with_data_source_ami/README.rst)
   - [run instance with ebs override](cases/aws_instance/run_instance_with_ebs_override/README.rst)
   - [run instance remove cdrom](cases/aws_instance/run_instances_remove_cdrom/README.rst)
-  - [run instance in switch](cases/aws_instance/run_instance_in_switch/README.rst)
   - [run instance with existing network interface](cases/aws_instance/run_instance_with_existing_network_interface/README.rst)
   - [run instance with launch template](cases/aws_instance/run_instance_with_launch_template/README.rst)
   - [run instance default subnet](cases/aws_instance/run_instance_default_subnet/README.rst)
@@ -59,6 +58,7 @@
 - [aws_default_security_group](cases/aws_default_security_group/README.rst)
 - [aws_security_group_rule](cases/aws_security_group_rule/README.rst)
 - [aws_network_interface](cases/aws_network_interface/README.rst)
+- [aws_ec2_transit_gateway](cases/aws_ec2_transit_gateway/README.rst)
 
 ### S3 resources
 

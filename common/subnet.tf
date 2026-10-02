@@ -4,4 +4,3 @@ resource "aws_subnet" "test_subnet" {
 
   cidr_block = cidrsubnet(aws_vpc.test_vpc.cidr_block, 1, 0)
 }
-

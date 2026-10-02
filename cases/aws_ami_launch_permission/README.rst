@@ -3,7 +3,7 @@ aws_ami_launch_permission
 
 Summary
 -------
-This example introduces ``aws_ami_launch_permissions`` resource.
+This example introduces ``aws_ami_launch_permission`` resource.
 
 Differences
 -----------

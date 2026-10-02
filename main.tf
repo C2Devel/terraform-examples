@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hc-registry.website.k2.cloud/c2devel/rockitcloud"
-      version = "24.1.0"
+      version = "~> 25.5.5"
     }
     tls = {
       source  = "hc-registry.website.k2.cloud/hashicorp/tls"
@@ -11,96 +11,54 @@ terraform {
   }
 }
 
-variable "switch_id" {
-}
-
-variable "ec2_url" {
-}
-
-variable "s3_url" {
-}
-
 variable "access_key" {
+  type = string
 }
 
 variable "secret_key" {
+  type = string
 }
 
 variable "ami" {
+  type = string
 }
 
 variable "public_ipv4_pool" {
+  type = string
 }
 
 variable "region" {
+  type    = string
   default = "ru-msk"
 }
 
 variable "az" {
+  type = string
 }
 
 variable "instance_type" {
+  type    = string
   default = "m1.micro"
 }
 
 variable "account_id" {
+  type = string
 }
 
 variable "template_owner" {
+  type = string
 }
 
 variable "template_name" {
-}
-
-variable "insecure" {
-  default = false
+  type = string
 }
 
 provider "tls" {
+  type = string
 }
 
 provider "aws" {
-  endpoints {
-    # NOTE: specify custom EC2 endpoint URL
-    #       due to different region name
-    ec2 = var.ec2_url
-  }
-
-  # NOTE: STS API is not implemented, skip validation
-  skip_credentials_validation = true
-
-  # NOTE: IAM API is not implemented, skip validation
-  skip_requesting_account_id = true
-
-  # NOTE: Region has different name, skip validation
-  skip_region_validation = true
-
-  insecure   = var.insecure
   access_key = var.access_key
   secret_key = var.secret_key
   region     = var.region
 }
-
-provider "aws" {
-  alias = "noregion"
-  endpoints {
-    # NOTE: specify custom EC2 endpoint URL
-    #       due to different region name
-    s3 = var.s3_url
-  }
-
-  # NOTE: STS API is not implemented, skip validation
-  skip_credentials_validation = true
-
-  # NOTE: IAM API is not implemented, skip validation
-  skip_requesting_account_id = true
-
-  # NOTE: Region has different name, skip validation
-  skip_region_validation = true
-
-  insecure   = var.insecure
-  access_key = var.access_key
-  secret_key = var.secret_key
-  region     = "us-east-1"
-}
-

@@ -1,4 +1,5 @@
 variable "network_acls_count" {
+  type    = number
   default = 1
 }
 

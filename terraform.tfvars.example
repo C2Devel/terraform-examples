@@ -1,5 +1,4 @@
-ec2_url = "https://ec2.k2.cloud"
-s3_url = "https://s3.k2.cloud"
+region = "ru-msk"
 
 secret_key = "<your_secret_key>"
 
@@ -17,5 +16,3 @@ public_ipv4_pool = "<public_pool>"
 
 template_owner = "<desired_template_owner>"
 template_name = "<desired_template_name>"
-
-switch_id = ""
